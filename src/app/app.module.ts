@@ -8,6 +8,7 @@ import {MainComponent} from './main/main.component';
 import {HeadComponent} from './head/head.component';
 import { SearchComponent } from './main/search/search.component';
 import { PopularComponent } from './main/popular/popular.component';
+import { TagcloudComponent } from './side/tagcloud/tagcloud.component';
 
 const appRoutes: Routes = [
   {path: 'search', component: SearchComponent},
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     MainComponent,
     HeadComponent,
     SearchComponent,
-    PopularComponent
+    PopularComponent,
+    TagcloudComponent
   ],
   imports: [
     BrowserModule,
