@@ -1,0 +1,58 @@
+.navigationBar{
+  height:50px;
+  margin-bottom: 0px;
+}
+
+.menu{
+  display: inline-block;
+
+}
+
+.navbarBrand{
+  font-size: x-large;
+  color: #FFFFFF !important;
+}
+
+#myNavbar{
+  background-color: #000;
+
+}
+
+@media (min-width: 992px){
+  #myNavbar{height: 50px !important;}
+}
+
+.login{
+  color: #9d9d9d;
+  vertical-align: super;
+  margin-right: 50%;
+  padding-top: 8px;
+  font-size: 14px;
+}
+.login:hover{
+  color: #FFFFFF;
+  text-decoration:none;
+}
+
+
+.input_design{
+  width:90% !important;
+}
+
+.confButton{
+  padding-top: 5px;
+  color: #9d9d9d;
+}
+
+.dropdown{
+  display: block;
+  position: relative;
+}
+.dropdown-menu{
+  position: absolute;
+}
+
+.confButton:hover{
+  color: #FFFFFF;
+  text-decoration:none;
+}
