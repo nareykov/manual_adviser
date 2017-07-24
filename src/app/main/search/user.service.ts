@@ -18,8 +18,8 @@ export class UserService {
         const users: User[] = [];
         for (const index in userList) {
           console.log(userList[index]);
-          const tag = userList[index];
-          users.push({username: tag.username, image: tag.image, commentAmmount: tag.commentAmmount, postAmmount: tag.manualAmmount});
+          const user = userList[index];
+          users.push({username: user.username, image: user.image, commentAmount: user.commentAmount, manualAmount: user.manualAmount});
         }
         return users;
       });
