@@ -11,6 +11,7 @@ import {TagCloudModule} from 'angular-tag-cloud-module';
 import { SearchComponent } from './main/search/search.component';
 import { PopularComponent } from './main/popular/popular.component';
 import { LoginComponent } from './main/login/login.component';
+import { HttpModule } from '@angular/http';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    TagCloudModule
+    TagCloudModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

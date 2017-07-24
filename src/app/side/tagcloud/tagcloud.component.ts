@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {CloudData, CloudOptions} from 'angular-tag-cloud-module';
-import {HttpService} from './tagcloud-http.service';
-import {Response} from '@angular/http';
+import {TagCloudService} from './tag-cloud.service';
 
 @Component({
   selector: 'app-tagcloud',
   templateUrl: './tagcloud.component.html',
   styleUrls: ['./tagcloud.component.css'],
-  providers: [HttpService]
+  providers: [TagCloudService]
 })
 export class TagcloudComponent implements OnInit {
 
@@ -29,12 +28,11 @@ export class TagcloudComponent implements OnInit {
 
   tags: Array<CloudData>;
 
-
-  httpService: HttpService;
+  constructor(private tagCloudService: TagCloudService) {}
 
   installTags() {
- //   this.httpService.getData().subscribe((data: Response) => this.tags = data.json());
-    for (const tag of this.data) {
+    this.tagCloudService.getData().subscribe((data) => this.tags = data);
+    for (const tag of this.tags) {
       tag.color = this.getRandomColor();
     }
   }
