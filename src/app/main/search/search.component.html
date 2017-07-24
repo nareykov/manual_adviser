@@ -32,61 +32,21 @@
 
 <div class="search-result">
 
-  <div class="user-div">
+  <div *ngFor="let user of users;"  class="user-div">
     <a href="/lesson/Tools-and-Supplies-1/" title="title">
-      <img class="user-img" src="https://cdn.instructables.com/FXG/AGTM/J4OFUV9X/FXGAGTMJ4OFUV9X.SMALL.jpg">
+      <img class="user-img" src={{user.image}}>
     </a>
     <div>
-      <h4>Vlad Nareyko</h4>
+      <h4>{{user.username}}</h4>
       <div class="rate-wrap">
         <img src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
       </div>
       <h5>@nareykov</h5>
-      <h5><span class="label label-danger">999 posts</span> <span class="label label-primary">11 comments</span></h5>
+      <h5><span class="label label-danger">{{user.postAmmount}} posts</span> <span class="label label-primary">{{user.commentAmmount}}comments</span></h5>
     </div>
   </div>
 
-  <div class="user-div">
-    <a href="/lesson/Tools-and-Supplies-1/" title="title">
-      <img class="user-img" src="https://cdn.instructables.com/F1L/GGXJ/J4YFRQUF/F1LGGXJJ4YFRQUF.SMALL.jpg">
-    </a>
-    <div>
-      <h4>Ivanov Ivan</h4>
-      <div class="rate-wrap">
-        <img src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
-      </div>
-      <h5>@ivanov777</h5>
-      <h5><span class="label label-danger">124 posts</span> <span class="label label-primary">44 comments</span></h5>
-    </div>
-  </div>
 
-  <div class="user-div">
-    <a href="/lesson/Tools-and-Supplies-1/" title="title">
-      <img class="user-img" src="https://www.w3schools.com/images/colorpicker.gif">
-    </a>
-    <div>
-      <h4>Ihate Frontend</h4>
-      <div class="rate-wrap">
-        <img src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
-      </div>
-      <h5>@zaebalo</h5>
-      <h5><span class="label label-danger">124 posts</span> <span class="label label-primary">44 comments</span></h5>
-    </div>
-  </div>
-
-  <div class="user-div">
-    <a href="/lesson/Tools-and-Supplies-1/" title="title">
-      <img class="user-img" src="https://cdn.instructables.com/FXG/AGTM/J4OFUV9X/FXGAGTMJ4OFUV9X.SMALL.jpg">
-    </a>
-    <div>
-      <h4>Vlad Nareyko</h4>
-      <div class="rate-wrap">
-        <img src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
-      </div>
-      <h5>@nareykov</h5>
-      <h5><span class="label label-danger">999 posts</span> <span class="label label-primary">11 comments</span></h5>
-    </div>
-  </div>
 
   <div class="lesson-summary">
     <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn" class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
