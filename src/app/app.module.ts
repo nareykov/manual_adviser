@@ -1,17 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+import {HttpModule} from '@angular/http';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {SideComponent} from './side/side.component';
 import {MainComponent} from './main/main.component';
 import {HeadComponent} from './head/head.component';
 import {TagcloudComponent} from './side/tagcloud/tagcloud.component';
 import {TagCloudModule} from 'angular-tag-cloud-module';
-import { SearchComponent } from './main/search/search.component';
-import { PopularComponent } from './main/popular/popular.component';
-import { LoginComponent } from './main/login/login.component';
-import { HttpModule } from '@angular/http';
+import {SearchComponent} from './main/search/search.component';
+import {PopularComponent} from './main/popular/popular.component';
+import {LoginComponent} from './main/login/login.component';
+import {UpdateprofileComponent} from './main/updateprofile/updateprofile.component';
+
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -29,7 +31,9 @@ const appRoutes: Routes = [
     SearchComponent,
     PopularComponent,
     LoginComponent,
-    TagcloudComponent
+    TagcloudComponent,
+    UpdateprofileComponent
+
   ],
   imports: [
     BrowserModule,
@@ -40,4 +44,5 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

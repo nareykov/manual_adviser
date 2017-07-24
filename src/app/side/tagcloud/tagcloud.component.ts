@@ -16,19 +16,11 @@ export class TagcloudComponent implements OnInit {
     overflow: true,
   };
 
-   data: Array<CloudData> = [
-     {text: 'barbos', weight: 2, link: 'https://google.com'},
-     {text: 'Weigh', weight: 1, link: 'https://google.com'},
-     {text: 'nigga', weight: 3, link: 'https://google.com'},
-     {text: 'krasava', weight: 2, link: 'https://google.com'},
-     {text: 'zalupa Kita', weight: 1, link: 'https://google.com'},
-     {text: 'bar', weight: 3, link: 'https://google.com'},
-
-   ];
 
   tags: Array<CloudData>;
 
-  constructor(private tagCloudService: TagCloudService) {}
+  constructor(private tagCloudService: TagCloudService) {
+  }
 
   installTags() {
     this.tagCloudService.getData().subscribe((data) => this.tags = data);

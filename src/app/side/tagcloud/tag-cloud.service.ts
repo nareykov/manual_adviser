@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {CloudData} from 'angular-tag-cloud-module';
 import {Http} from '@angular/http';
 import {Response} from '@angular/http';
@@ -8,7 +8,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class TagCloudService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+  }
 
   getData(): Observable<CloudData[]> {
     return this.http.get('http://localhost:8080/tags')
