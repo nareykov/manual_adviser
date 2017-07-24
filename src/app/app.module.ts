@@ -8,9 +8,10 @@ import {MainComponent} from './main/main.component';
 import {HeadComponent} from './head/head.component';
 import { SearchComponent } from './main/search/search.component';
 import { PopularComponent } from './main/popular/popular.component';
-import { TagcloudComponent } from './side/tagcloud/tagcloud.component';
+import { LoginComponent } from './main/login/login.component';
 
 const appRoutes: Routes = [
+  {path: 'login', component: LoginComponent},
   {path: 'search', component: SearchComponent},
   {path: 'popular', component: PopularComponent},
   {path: '**', redirectTo: '/popular'}
@@ -24,7 +25,7 @@ const appRoutes: Routes = [
     HeadComponent,
     SearchComponent,
     PopularComponent,
-    TagcloudComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
