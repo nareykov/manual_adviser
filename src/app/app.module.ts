@@ -12,13 +12,14 @@ import {TagCloudModule} from 'angular-tag-cloud-module';
 import {SearchComponent} from './main/search/search.component';
 import {PopularComponent} from './main/popular/popular.component';
 import {LoginComponent} from './main/login/login.component';
-import {UpdateprofileComponent} from './main/updateprofile/updateprofile.component';
+import { UserComponent } from './main/user/user.component';
 
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'search', component: SearchComponent},
   {path: 'popular', component: PopularComponent},
+  {path: 'user/:username', component: UserComponent},
   {path: '**', redirectTo: '/popular'}
 ];
 
@@ -32,7 +33,7 @@ const appRoutes: Routes = [
     PopularComponent,
     LoginComponent,
     TagcloudComponent,
-    UpdateprofileComponent
+    UserComponent
 
   ],
   imports: [

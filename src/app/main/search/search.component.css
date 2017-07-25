@@ -43,13 +43,18 @@
   border: 1px solid #d7d7d7;
   border-radius: 6px;
   margin-bottom: 20px;
-  height: 250px;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 150px;
+  width: 430px;
   position: relative;
   overflow: hidden;
+  display: inline-block;
 }
 
 .lesson-summary h2 {
   margin-bottom: 0px;
+  margin-top: 5px;
 }
 
 .lesson-summary h5 {
@@ -59,8 +64,8 @@
 
 .lesson {
   margin-right: 2%;
-  max-height: 248px;
-  max-width: 350px;
+  height: 148px;
+  width: 140px;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   float: left;
@@ -73,17 +78,17 @@
   right: 10px;
 }
 
-.search-result {
-  padding: 20px;
-}
-
 .user-div {
   background: #FFFFFF;
   border: 1px solid #d7d7d7;
   border-radius: 6px;
   margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 430px;
   height: 90px;
   position: relative;
+  display: inline-block;
 }
 
 .user-div h4 {

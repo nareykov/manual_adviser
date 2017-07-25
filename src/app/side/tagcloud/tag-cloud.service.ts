@@ -11,6 +11,15 @@ export class TagCloudService {
   constructor(private http: Http) {
   }
 
+  getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
   getData(): Observable<CloudData[]> {
     return this.http.get('http://localhost:8080/tags')
       .map((resp: Response) => {
@@ -20,7 +29,7 @@ export class TagCloudService {
         for (const index in tagsList) {
           console.log(tagsList[index]);
           const tag = tagsList[index];
-          tags.push({text: tag.text, weight: tag.weight, link: tag.link});
+          tags.push({text: tag.text, weight: tag.weight, link: tag.link, color: this.getRandomColor()});
         }
         return tags;
       });

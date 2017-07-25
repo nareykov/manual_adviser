@@ -4,7 +4,7 @@ import {UserService} from './user.service';
 import {Manual} from './manual';
 import {ManualService} from './manual.service';
 
-@Component({
+@Component ({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],

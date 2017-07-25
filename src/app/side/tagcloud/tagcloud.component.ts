@@ -16,29 +16,15 @@ export class TagcloudComponent implements OnInit {
     overflow: true,
   };
 
-
   tags: Array<CloudData>;
 
-  constructor(private tagCloudService: TagCloudService) {
-  }
+  constructor(private tagCloudService: TagCloudService) {}
 
   installTags() {
     this.tagCloudService.getData().subscribe((data) => this.tags = data);
-    for (const tag of this.tags) {
-      tag.color = this.getRandomColor();
-    }
   }
 
   ngOnInit(): void {
     this.installTags();
-  }
-
-  getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
   }
 }

@@ -1,20 +1,3 @@
-.filter-item {
-  display: -webkit-inline-box;
-}
-
-.form-control {
-  width: auto;
-}
-
-.tabs a {
-  text-decoration: none;
-  font-size: 20px;
-  padding-bottom: 2px;
-  margin-right: 5%;
-  margin: 10px;
-  border-bottom: #337ab7 solid 2px;
-}
-
 .lesson-summary {
   background: #FFFFFF;
   border: 1px solid #d7d7d7;
@@ -55,22 +38,54 @@
   right: 10px;
 }
 
-.search-result {
-  padding-top: 20px;
-  padding-left: 0px;
+.avatar {
+  height: 150px;
+  width: 150px;
+  margin-right: 2%;
+  float: left;
 }
 
-.user-div h4 {
-  margin-top: 15px;
-  margin-bottom: 1px;
-}
-
-.user-div h5 {
-  font-size: 13px;
+.headerInfo h5{
+  font-size: 16px;
   margin-top: 5px;
-  color: #9d9d9d;
 }
 
-.form-control {
+.header h1 {
+  margin-bottom: 4px;
+}
+
+.nickname {
+  color: #9d9d9d;
+  margin-bottom: 5px;
+}
+
+.medals {
+  margin-top: 25px;
+}
+
+.medal {
+  height: 55px;
+}
+
+.tabs a {
+  text-decoration: none;
+  font-size: 30px;
+  padding-bottom: 4px;
+  margin-right: 5%;
+  margin: 10px;
+  border-bottom: #337ab7 solid 2px;
+}
+
+.inf {
+  font-size: initial;
+  margin-left: 20px;
+}
+
+.fullname-wrap {
+  display: inline-block;
+}
+
+.nickname-wrap {
+  display: inline-block;
   margin-left: 10px;
 }
