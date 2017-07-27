@@ -5,6 +5,7 @@ export class Manual {
   image: string;
   introduction: string;
   username: string;
+  rating: number
   tagNames: Array<String>;
 
   constructor() {
