@@ -54,7 +54,7 @@
 
 .lesson-summary h2 {
   margin-bottom: 0px;
-  margin-top: 5px;
+  margin-top: 0px;
 }
 
 .lesson-summary h5 {
@@ -112,8 +112,46 @@
   display: table-cell;
 }
 
-.rate-wrap {
+
+.rating{
   position: absolute;
-  top: 5px;
-  right: 10px;
+  top:0px;
+  right:5px;
+  width: 40px;
+  height: 150px;
+}
+
+.manual_content{
+  height: 150px;
+  width: 380px;
+
+}
+
+.button_arrow{
+  border-radius: 5px !important;
+  border-color: #FFFFFF !important;
+
+}
+
+.rating div{
+  display: block;
+}
+
+.rating_num{
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+  padding-right: 1px;
+}
+
+.rating_uparrow{
+  margin-top: 10px;
+}
+
+.button_uparrow:hover{
+  color: chartreuse;
+}
+
+.button_downarrow:hover{
+  color: red;
 }

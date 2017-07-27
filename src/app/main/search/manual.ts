@@ -1,4 +1,5 @@
 export class Manual {
+  id: number;
   published: boolean;
   name: string;
   date: string;

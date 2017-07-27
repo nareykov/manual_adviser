@@ -1,5 +1,3 @@
-
-
 <div class="filters-block">
   <div class="filter-item">
     <h4>Category: </h4>
@@ -32,7 +30,7 @@
 
 <div class="search-result">
 
-  <div *ngFor="let user of users;"  class="user-div">
+  <div *ngFor="let user of users;" class="user-div">
     <a href="/lesson/Tools-and-Supplies-1/" title="title">
       <img class="user-img" src="{{user.image}}">
     </a>
@@ -42,25 +40,38 @@
         <img src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
       </div>
       <h5>@nareykov</h5>
-      <h5><span class="label label-danger">{{user.manualAmount}} manuals</span> <span class="label label-primary">{{user.commentAmount}}comments</span></h5>
+      <h5><span class="label label-danger">{{user.manualAmount}} manuals</span> <span class="label label-primary">{{user.commentAmount}}comments</span>
+      </h5>
     </div>
   </div>
 
 
-
   <div class="lesson-summary" *ngFor="let manual of manuals">
-    <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn" class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
-      <img class="lesson" src="https://cdn.instructables.com/FXG/AGTM/J4OFUV9X/FXGAGTMJ4OFUV9X.SMALL.jpg">
-    </a>
     <div>
-      <h2>{{manual.name}}</h2>
-      <img src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
-      <h5><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}, {{manual.date}}.</h5>
-      <h5><span *ngFor="let tag of manual.tagNames" class="label label-danger">{{tag}}</span> </h5>
-      <p>{{manual.introduction}}</p>
-      <div class="button-wrap" style="padding: 20px 0 0;">
-        <button type="button" class="btn btn-default">Read more</button>
+      <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn"
+         class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
+        <img class="lesson" src="https://cdn.instructables.com/FXG/AGTM/J4OFUV9X/FXGAGTMJ4OFUV9X.SMALL.jpg">
+      </a>
+      <div>
+        <h2>{{manual.name}}</h2>
+        <h5><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}</h5>
+        <h5> {{manual.date}}</h5>
+        <h5><span *ngFor="let tag of manual.tagNames; " class="label label-danger">{{tag}}</span></h5>
+        <p>{{manual.introduction}}</p>
+      </div>
+      <div class="rating">
+        <div class="rating_uparrow">
+          <button class="btn btn-default button_arrow"  (click)="estimate(1, manual.id, 1)"><i class="fa fa-2x fa-long-arrow-up" aria-hidden="true"></i></button>
+        </div>
+        <div>
+          <h3 class="rating_num">{{manual.rating}}</h3>
+        </div>
+        <div class="">
+          <button class="btn btn-default button_arrow" (click)="estimate(1, manual.id, -1)"><i class="fa fa-2x fa-long-arrow-down" aria-hidden="true"></i></button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+

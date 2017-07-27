@@ -11,18 +11,37 @@
 </div>
 
 <div class="search-result">
-  <div class="lesson-summary">
-    <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn" class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
-      <img class="lesson" src="https://cdn.instructables.com/F1L/GGXJ/J4YFRQUF/F1LGGXJJ4YFRQUF.SMALL.jpg">
-    </a>
-    <div>
-      <h2>Officially Blogging</h2>
-      <img src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
-      <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
-      <h5><span class="label label-success">Lorem</span></h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <div class="button-wrap" style="padding: 20px 0 0;">
+
+
+  <div class="lesson-summary"> <!--*ngFor="let manual of manuals">-->
+    <div class="manual_content">
+      <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn"
+         class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
+        <img class="lesson" src="https://cdn.instructables.com/FXG/AGTM/J4OFUV9X/FXGAGTMJ4OFUV9X.SMALL.jpg">
+      </a>
+      <div>
+        <h2>Officially</h2>
+        <!--*ngFor="let tag of manual.tagNames" class="label label-danger">-->
+        <h5 class="label label-danger"><span> Lorem</span></h5>
+        <h5 class="posted"> Posted by <b>John Doe</b></h5>
+        <h5><span class="glyphicon glyphicon-time"></span> Sep 24, 2015</h5>
+
+        <p><i>Lorem ipsum dolor sit amet</i></p>
+      </div>
+    </div>
+    <div class="rating">
+      <div class="rating_uparrow">
+        <button class="btn btn-default button_arrow"><i class="fa fa-2x fa-long-arrow-up  button_uparrow" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div>
+        <h3 class="rating_num">123</h3>
+      </div>
+      <div class="">
+        <button class="btn btn-default button_arrow "><i class="fa fa-2x fa-long-arrow-down  button_downarrow"
+                                                                             aria-hidden="true"></i></button>
       </div>
     </div>
   </div>
+  <!--</div>-->
 </div>
