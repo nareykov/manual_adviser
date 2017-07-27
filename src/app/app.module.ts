@@ -13,13 +13,16 @@ import {SearchComponent} from './main/search/search.component';
 import {PopularComponent} from './main/popular/popular.component';
 import {LoginComponent} from './main/login/login.component';
 import { UserComponent } from './main/user/user.component';
+import {FormsModule} from '@angular/forms';
+import { EditInstructionComponent } from './main/edit-instruction/edit-instruction.component';
 
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'search', component: SearchComponent},
+  {path: 'search/:searchparam', component: SearchComponent},
   {path: 'popular', component: PopularComponent},
-  {path: 'user/:username', component: UserComponent},
+  {path: 'user/:id', component: UserComponent},
+  {path: 'editinstruction/:id', component: EditInstructionComponent},
   {path: '**', redirectTo: '/popular'}
 ];
 
@@ -33,14 +36,16 @@ const appRoutes: Routes = [
     PopularComponent,
     LoginComponent,
     TagcloudComponent,
-    UserComponent
+    UserComponent,
+    EditInstructionComponent
 
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     TagCloudModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

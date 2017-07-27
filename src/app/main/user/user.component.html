@@ -2,24 +2,17 @@
 
   <img class="avatar img-rounded" src={{userProfile.image}}>
   <div class="fullname-wrap">
-    <h1 contenteditable="true" (click)="usernameChanged()" #usernameTag>{{userProfile.username}}</h1>
-    <p>{{usernameTag.textContent}}</p>
-    <p>{{name}}</p>
+    <h1 #usernameTag contenteditable="true" (blur)="infoChanged()">{{userProfile.username}}</h1>
   </div>
-  <div class="nickname-wrap">
-    <h4 class="nickname" contenteditable="true">@vanya777</h4>
+  <div class="inf">
+    <p>Страна: <font #originTag contenteditable="true" (blur)="infoChanged()">{{userProfile.origin}}</font></p>
+    <p>Последняя активность: 12.34.2345</p>
+    <p>Зарегистрирован: {{userProfile.date}}</p>
   </div>
-  <div class="headerInline">
-    <div class="inf">
-      <p>Страна: <font contenteditable="true">{{userProfile.origin}}</font></p>
-      <p>Последняя активность: 12.34.2345</p>
-      <p>Зарегистрирован: {{userProfile.date}}</p>
-    </div>
-  </div>
+
 </div>
 
 <div class="medals">
-  <img class="medal" src="data:image/png;base64,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">
   <img class="medal" src="https://pp.userapi.com/c841129/v841129339/ba81/LWdruDfe3ps.jpg">
   <img class="medal" src="https://pp.userapi.com/c841129/v841129339/ba68/U6e6zthhJgw.jpg">
 
@@ -38,4 +31,8 @@
     <h5><span *ngFor="let tag of manual.tagNames" class="label label-danger">{{tag}}</span> </h5>
     <p>{{manual.introduction}}</p>
   </div>
+</div>
+
+<div class="newButtonDiv">
+  <button type="button" class="btn btn-primary" (click)="newInstruction()">+ New instruction</button>
 </div>

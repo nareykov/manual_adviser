@@ -12,6 +12,24 @@
   display: inline-block;
 }
 
+.newButtonDiv {
+  background: #FFFFFF;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 150px;
+  width: 420px;
+  position: relative;
+  display: inline-block;
+}
+
+.newButtonDiv button{
+  margin-top: 17px;
+  margin-left: 40px;
+  width: 340px;
+  height: 50px;
+}
+
 .lesson-summary h2 {
   margin-bottom: 0px;
   margin-top: 5px;
@@ -79,6 +97,7 @@
 .inf {
   font-size: initial;
   margin-left: 20px;
+  margin-top: 10px;
 }
 
 .fullname-wrap {

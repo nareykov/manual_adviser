@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-head',
   templateUrl: './head.component.html',
   styleUrls: ['./head.component.css']
 })
-export class HeadComponent implements OnInit {
+export class HeadComponent {
+  searchparam: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private activateRoute: ActivatedRoute) {
   }
 
+  searchClicked() {
+    console.log(this.activateRoute.snapshot.params['searchparam']);
+  }
 }

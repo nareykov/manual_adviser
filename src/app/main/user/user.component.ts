@@ -1,27 +1,33 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {UserProfileService} from './user-profile.service';
 import {UserProfile} from './user-profile';
+import {ManualService} from '../search/manual.service';
+
 
 @Component ({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
-  providers: [UserProfileService]
+  providers: [UserProfileService, ManualService]
 })
 export class UserComponent implements OnDestroy, OnInit {
 
-  private username: string;
+  private id: number;
   private subscription: Subscription;
-  userProfile: UserProfile;
-
+  private userProfile: UserProfile;
+  private instructionId: number;
   @ViewChild('usernameTag')
-  usernameTag: HTMLHeadingElement;
-  name = 'test';
+  usernameTag: any;
+  @ViewChild('originTag')
+  originTag: any;
+  router: Router;
 
-  constructor(private activateRoute: ActivatedRoute, private userProfileService: UserProfileService) {
-    this.subscription = activateRoute.params.subscribe(params => this.username = params['username']);
+  constructor(private activateRoute: ActivatedRoute, private userProfileService: UserProfileService,
+              private manualService: ManualService, router: Router) {
+    this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
+    this.router = router;
   }
 
   ngOnDestroy() {
@@ -33,10 +39,19 @@ export class UserComponent implements OnDestroy, OnInit {
   }
 
   getUserProfile() {
-    this.userProfileService.getUserProfile(this.username).subscribe((data) => this.userProfile = data);
+    this.userProfileService.getUserProfile(this.id).subscribe((data) => this.userProfile = data);
   }
 
-  usernameChanged() {
-    this.name = this.usernameTag.textContent;
+  infoChanged() {
+    this.userProfile.username = this.usernameTag.nativeElement.textContent;
+    this.userProfile.origin = this.originTag.nativeElement.textContent;
+    console.log(this.userProfile.username);
+    this.userProfileService.postUserProfile(this.userProfile);
+  }
+
+  newInstruction() {
+    this.instructionId = 3;
+    this.manualService.newInstruction();
+    this.router.navigateByUrl('/editinstruction/' + this.instructionId);
   }
 }

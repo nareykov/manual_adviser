@@ -18,13 +18,12 @@
     </ul>
 
     <div class="">
-
-      <form class="navbar-form" role="search">
+      <!--<form class="navbar-form" role="search">-->
         <div class="input-group col-lg-offset-2 col-lg-6 col-md-offset-2 col-md-5" >
           <div class="search menu configuration col-lg-8 col-md-7 ">
-            <input type="text" class="form-control input_design" placeholder="Search" name="srch-term" id="srch-term">
+            <input type="text" class="form-control input_design" placeholder="Search" [(ngModel)]="searchparam" id="srch-term">
             <div class="input-group-btn">
-              <button class="btn btn-default" type="submit" routerLink="/search"><i class="glyphicon glyphicon-search"></i></button>
+              <button class="btn btn-default" type="submit" [routerLink]="['/search', searchparam]" (click)="searchClicked()"><i class="glyphicon glyphicon-search"></i></button>
             </div>
           </div>
           <div class=" col-lg-2 col-md-2">
@@ -43,9 +42,10 @@
           </div>
         </div>
 
-      </form>
+      <!--</form>-->
 
 
     </div>
   </div>
 </div>
+

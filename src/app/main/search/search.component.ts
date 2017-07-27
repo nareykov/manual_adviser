@@ -3,6 +3,8 @@ import {User} from './user';
 import {UserService} from './user.service';
 import {Manual} from './manual';
 import {ManualService} from './manual.service';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component ({
   selector: 'app-search',
@@ -12,15 +14,20 @@ import {ManualService} from './manual.service';
 })
 export class SearchComponent implements OnInit {
 
+  private searchparam: string;
+  private subscription: Subscription;
+
   users: Array<User>;
   manuals: Array<Manual>;
 
-  constructor(private userService: UserService, private manualService: ManualService) {
+  constructor(private activateRoute: ActivatedRoute, private userService: UserService, private manualService: ManualService) {
+    this.subscription = activateRoute.params.subscribe(params => this.searchparam = params['searchparam']);
   }
-
+// TODO NavigationEnd
   ngOnInit(): void {
     this.getUsers();
     this.getManuals();
+    console.log(this.searchparam);
   }
 
   getUsers() {
