@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
 
   users: Array<User>;
   manuals: Array<Manual> = [];
+  estimatedManualIds: Array<number> = [];
 
   constructor(private activateRoute: ActivatedRoute, private userService: UserService,
               private manualService: ManualService, private ratingService: RatingService, private router: Router) {
@@ -52,9 +53,14 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  estimate(userId: number, manualId: number, value: number, index: number) {
+  checkEestimatedManuals(manualId: number) {
+    return this.estimatedManualIds.indexOf(manualId) > -1;
+  }
+
+  estimate(userId: number, manualId: number, value: number) {
     this.ratingService.saveRating(new Rating(userId, manualId, value));
-    this.manuals[index].rating += value;
+    this.manuals[manualId].rating += value;
+    this.estimatedManualIds.push(manualId);
   }
 
   onScroll() {

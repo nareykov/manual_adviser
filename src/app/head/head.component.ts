@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-head',
@@ -9,6 +8,6 @@ import {ActivatedRoute} from "@angular/router";
 export class HeadComponent {
   searchparam: string;
 
-  constructor(private activateRoute: ActivatedRoute) {
+  constructor() {
   }
 }

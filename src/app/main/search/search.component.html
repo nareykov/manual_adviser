@@ -60,7 +60,7 @@
       </div>
       <div class="rating">
         <div class="rating_uparrow">
-          <button class="btn btn-default button_arrow"  (click)="estimate(1, manual.id, 1, i)"><i class="fa fa-2x fa-long-arrow-up  button_uparrow" aria-hidden="true"></i></button>
+          <button class="btn btn-default button_arrow"  (click)="estimate(1, manual.id, 1, i)" [disabled]="!checkEestimatedManuals()"><i class="fa fa-2x fa-long-arrow-up  button_uparrow" aria-hidden="true"></i></button>
         </div>
         <div>
           <h3 class="rating_num">{{manual.rating}}</h3>

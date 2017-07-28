@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditInstructionComponent implements OnInit {
 
+  items = ['Pizza', 'Pasta', 'Parmesan'];
+
   constructor() { }
 
   ngOnInit() {
