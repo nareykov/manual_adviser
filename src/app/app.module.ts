@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http';
-
 import {AppComponent} from './app.component';
 import {SideComponent} from './side/side.component';
 import {MainComponent} from './main/main.component';
@@ -15,6 +14,7 @@ import {LoginComponent} from './main/login/login.component';
 import { UserComponent } from './main/user/user.component';
 import {FormsModule} from '@angular/forms';
 import { EditInstructionComponent } from './main/edit-instruction/edit-instruction.component';
+import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 
 
 const appRoutes: Routes = [
@@ -38,14 +38,14 @@ const appRoutes: Routes = [
     TagcloudComponent,
     UserComponent,
     EditInstructionComponent
-
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     TagCloudModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

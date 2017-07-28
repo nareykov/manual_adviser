@@ -45,13 +45,11 @@ export class UserComponent implements OnDestroy, OnInit {
   infoChanged() {
     this.userProfile.username = this.usernameTag.nativeElement.textContent;
     this.userProfile.origin = this.originTag.nativeElement.textContent;
-    console.log(this.userProfile.username);
     this.userProfileService.postUserProfile(this.userProfile);
   }
 
   newInstruction() {
-    this.instructionId = 3;
-    this.manualService.newInstruction();
-    this.router.navigateByUrl('/editinstruction/' + this.instructionId);
+    this.manualService.newInstruction().subscribe();
+    // this.router.navigateByUrl('/editinstruction/' + this.instructionId);
   }
 }

@@ -6,12 +6,13 @@ export class Manual {
   image: string;
   introduction: string;
   username: string;
-  rating: number
+  rating: number;
   tagNames: Array<String>;
 
   constructor() {
     this.name = 'НОВАЯ ИНСТРУКЦИЯ';
     this.introduction = 'ОПИСАНИЕ';
     this.published = false;
+    this.rating = 123;
   }
 }

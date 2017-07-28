@@ -5,7 +5,7 @@ import {Manual} from './manual';
 import {ManualService} from './manual.service';
 import {Rating} from './rating';
 import {RatingService} from './rating.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
@@ -20,10 +20,16 @@ export class SearchComponent implements OnInit {
   private subscription: Subscription;
 
   users: Array<User>;
-  manuals: Array<Manual>;
+  manuals: Array<Manual> = [];
 
   constructor(private activateRoute: ActivatedRoute, private userService: UserService,
-              private manualService: ManualService, private ratingService: RatingService) {
+              private manualService: ManualService, private ratingService: RatingService, private router: Router) {
+    router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          this.getManuals();
+        }
+      }
+    );
     this.subscription = activateRoute.params.subscribe(params => this.searchparam = params['searchparam']);
   }
 
@@ -39,11 +45,23 @@ export class SearchComponent implements OnInit {
   }
 
   getManuals() {
-    this.manualService.getManualArray().subscribe((data) => this.manuals = data);
+    if (this.searchparam.charAt(0) === '@') {
+      this.manualService.searchManualsByTag(this.searchparam).subscribe((data) => this.manuals = data);
+    } else {
+      this.manualService.searchManuals(this.searchparam).subscribe((data) => this.manuals = this.manuals = data);
+    }
   }
 
-  estimate(userId: number, manualId: number, value: number) {
+  estimate(userId: number, manualId: number, value: number, index: number) {
     this.ratingService.saveRating(new Rating(userId, manualId, value));
-    this.manuals[manualId].rating  += value;
+    this.manuals[index].rating += value;
+  }
+
+  onScroll() {
+    if (this.searchparam.charAt(0) === '@') {
+      this.manualService.searchManualsByTag(this.searchparam).subscribe((data) => this.manuals = this.manuals.concat(data));
+    } else {
+      this.manualService.searchManuals(this.searchparam).subscribe((data) => this.manuals = this.manuals.concat(data));
+    }
   }
 }

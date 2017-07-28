@@ -11,8 +11,4 @@ export class HeadComponent {
 
   constructor(private activateRoute: ActivatedRoute) {
   }
-
-  searchClicked() {
-    console.log(this.activateRoute.snapshot.params['searchparam']);
-  }
 }

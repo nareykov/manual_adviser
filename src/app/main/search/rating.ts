@@ -1,4 +1,10 @@
 export class Rating {
-
-  constructor(userId: number, manualId: number, value: number) {}
+  user: number;
+  manual: number;
+  value: number;
+  constructor(user: number, manual: number, value: number) {
+    this.user = user;
+    this.manual = manual;
+    this.value = value;
+  }
 }

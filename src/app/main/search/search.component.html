@@ -39,18 +39,17 @@
       <div class="rate-wrap">
         <img src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
       </div>
-      <h5>@nareykov</h5>
       <h5><span class="label label-danger">{{user.manualAmount}} manuals</span> <span class="label label-primary">{{user.commentAmount}}comments</span>
       </h5>
     </div>
   </div>
 
 
-  <div class="lesson-summary" *ngFor="let manual of manuals">
+  <div class="lesson-summary" *ngFor="let manual of manuals; let i = index" infinite-scroll [infiniteScrollThrottle]="2000" (scrolled)="onScroll()">
     <div>
       <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn"
          class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
-        <img class="lesson" src="https://cdn.instructables.com/FXG/AGTM/J4OFUV9X/FXGAGTMJ4OFUV9X.SMALL.jpg">
+        <img class="lesson" src="{{manual.image}}">
       </a>
       <div>
         <h2>{{manual.name}}</h2>
@@ -61,13 +60,13 @@
       </div>
       <div class="rating">
         <div class="rating_uparrow">
-          <button class="btn btn-default button_arrow"  (click)="estimate(1, manual.id, 1)"><i class="fa fa-2x fa-long-arrow-up" aria-hidden="true"></i></button>
+          <button class="btn btn-default button_arrow"  (click)="estimate(1, manual.id, 1, i)"><i class="fa fa-2x fa-long-arrow-up  button_uparrow" aria-hidden="true"></i></button>
         </div>
         <div>
           <h3 class="rating_num">{{manual.rating}}</h3>
         </div>
         <div class="">
-          <button class="btn btn-default button_arrow" (click)="estimate(1, manual.id, -1)"><i class="fa fa-2x fa-long-arrow-down" aria-hidden="true"></i></button>
+          <button class="btn btn-default button_arrow" (click)="estimate(1, manual.id, -1, i)"><i class="fa fa-2x fa-long-arrow-down  button_downarrow" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>

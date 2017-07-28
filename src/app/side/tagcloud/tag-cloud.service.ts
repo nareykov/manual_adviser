@@ -29,7 +29,7 @@ export class TagCloudService {
         for (const index in tagsList) {
           console.log(tagsList[index]);
           const tag = tagsList[index];
-          tags.push({text: tag.text, weight: tag.weight, link: tag.link, color: this.getRandomColor()});
+          tags.push({text: tag.text, weight: tag.weight, link: 'http://localhost:4200/search/@' + tag.text, color: this.getRandomColor()});
         }
         return tags;
       });

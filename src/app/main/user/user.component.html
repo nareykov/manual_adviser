@@ -27,6 +27,7 @@
   <div>
     <h2>{{manual.name}}</h2>
     <img class="rate" src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
+    <p>{{manual.rating}}</p>
     <h5><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}, {{manual.date}}.</h5>
     <h5><span *ngFor="let tag of manual.tagNames" class="label label-danger">{{tag}}</span> </h5>
     <p>{{manual.introduction}}</p>
