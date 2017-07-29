@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {Manual} from './manual';
+import {Manual} from '../Models/manual';
 import {Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -15,10 +15,8 @@ export class ManualService {
   constructor(private router: Router, private http: Http) {
   }
 
-  kek: string;
-
-  getManualArray(): Observable<Manual[]> {
-    return this.http.get('http://localhost:8080/manuals')
+  getManual(manualId: number): Observable<Manual> {
+    return this.http.get('http://localhost:8080/manual/' + manualId)
       .map((resp: Response) => {
         return resp.json();
       });
@@ -40,10 +38,7 @@ export class ManualService {
 
   newInstruction() {
     const headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Access-Control-Allow-Origin', 'http://localhost:8080');
     const options = new RequestOptions({headers: headers});
-    // return this.http.post('http://localhost:8080/newinstruction/', new Manual(), options)
-    //   .subscribe();
     return this.http.post('http://localhost:8080/newinstruction/', new Manual(), options)
       .map((response: Response) => {
         console.log(response.text());
@@ -51,4 +46,10 @@ export class ManualService {
       });
   }
 
+  postManual(manual: Manual) {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:8080/updatemanual/', manual, options)
+      .subscribe();
+  }
 }

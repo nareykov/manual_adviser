@@ -1,24 +1,18 @@
 <div class="main-image-wrap">
-  <img src="https://cdn2.iconfinder.com/data/icons/facebook-ui-colored/48/JD-03-256.png">
-  <!--<img src="https://cdn.instructables.com/FXG/AGTM/J4OFUV9X/FXGAGTMJ4OFUV9X.SMALL.jpg">-->
+  <cl-image [public-id]="manual.image" [cloud-name]="uploader.cloudName" width="256" height="256"></cl-image>
+  <div class="photobtn">
+    <label title="Add photo" class="btn btn-primary btn-lg">
+      <span class="glyphicon glyphicon-picture " style="color:aliceblue"></span>
+      Поменять фотку, епта
+      <input class="hidden" type="file" ng2FileSelect [uploader]="uploader" (change)="upload()" />
+    </label>
+  </div>
+
 </div>
 
 <div class="header-wrap">
-  <h1>Zagolovok epta lokek</h1>
-  <h5>Описание писание писание писание писание писание писание писание
-    писание писание писание писание писание писание
-    писание писание писание писание писание писание писание
-    писание писание писание писание писание писание писаниеОписание писание писание писание писание писание писание писание
-    писание писание писание писание писание писание
-    писание писание писание писание писание писание писание
-    писание писание писание писание писание писание писаниеОписание писание писание писание писание писание писание писание
-    писание писание писание писание писание писание
-    писание писание писание писание писание писание писание
-    писание писание писание писание писание писание писаниеОписание писание писание писание писание писание писание писание
-    писание писание писание писание писание писание
-    писание писание писание писание писание писание писание
-    писание писание писание писание писание писание писание
-  </h5>
+  <h1 #nameTag contenteditable="true" (blur)="infoChanged()">{{manual.name}}</h1>
+  <h5 #introductionTag contenteditable="true" (blur)="infoChanged()">{{manual.introduction}}</h5>
 </div>
 
 

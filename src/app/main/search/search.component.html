@@ -55,7 +55,7 @@
         <h2>{{manual.name}}</h2>
         <h5><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}</h5>
         <h5> {{manual.date}}</h5>
-        <h5><span *ngFor="let tag of manual.tagNames; " class="label label-danger">{{tag}}</span></h5>
+        <h5><span *ngFor="let tag of manual.tags; " class="label label-danger">{{tag.text}}</span></h5>
         <p>{{manual.introduction}}</p>
       </div>
       <div class="rating">

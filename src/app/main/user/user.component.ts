@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
-import {UserProfileService} from './user-profile.service';
-import {UserProfile} from './user-profile';
-import {ManualService} from '../search/manual.service';
+import {UserProfileService} from '../../Services/user-profile.service';
+import {UserProfile} from '../../Models/user-profile';
+import {ManualService} from '../../Services/manual.service';
 
 
 @Component ({
@@ -50,6 +50,5 @@ export class UserComponent implements OnDestroy, OnInit {
 
   newInstruction() {
     this.manualService.newInstruction().subscribe();
-    // this.router.navigateByUrl('/editinstruction/' + this.instructionId);
   }
 }

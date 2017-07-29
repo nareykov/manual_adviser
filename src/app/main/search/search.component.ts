@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from './user';
-import {UserService} from './user.service';
-import {Manual} from './manual';
-import {ManualService} from './manual.service';
-import {Rating} from './rating';
-import {RatingService} from './rating.service';
+import {User} from '../../Models/user';
+import {UserService} from '../../Services/user.service';
+import {Manual} from '../../Models/manual';
+import {ManualService} from '../../Services/manual.service';
+import {Rating} from '../../Models/rating';
+import {RatingService} from '../../Services/rating.service';
 import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
