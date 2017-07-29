@@ -15,10 +15,10 @@ import { UserComponent } from './main/user/user.component';
 import {FormsModule} from '@angular/forms';
 import { EditInstructionComponent } from './main/edit-instruction/edit-instruction.component';
 import {InfiniteScrollModule} from 'angular2-infinite-scroll';
-import {TagInputModule} from 'ngx-chips/dist/modules';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import {FileUploadModule} from 'ng2-file-upload';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TagInputModule} from 'ngx-chips/dist/modules';
 
 
 const appRoutes: Routes = [
@@ -50,7 +50,7 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     InfiniteScrollModule,
-    // TagInputModule,
+    TagInputModule,
     BrowserAnimationsModule,
     Ng2CloudinaryModule,
     FileUploadModule

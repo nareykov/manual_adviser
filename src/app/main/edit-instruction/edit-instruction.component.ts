@@ -50,7 +50,6 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
   infoChanged() {
     this.manual.name = this.nameTag.nativeElement.textContent;
     this.manual.introduction = this.introductionTag.nativeElement.textContent;
-    this.manual.tags = null;
     this.manualService.postManual(this.manual);
   }
 

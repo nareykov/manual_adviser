@@ -12,6 +12,7 @@
 
 <div class="header-wrap">
   <h1 #nameTag contenteditable="true" (blur)="infoChanged()">{{manual.name}}</h1>
+  <tag-input [ngModel]="manual.tags" [identifyBy]="'id'" [displayBy]="'text'"></tag-input>
   <h5 #introductionTag contenteditable="true" (blur)="infoChanged()">{{manual.introduction}}</h5>
 </div>
 
