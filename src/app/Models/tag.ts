@@ -1,10 +1,10 @@
 export class Tag {
   id: number;
-  text: string;
+  name: string;
   weight: number;
-  constructor(id: number, text: string, weight: number) {
+  constructor(id: number, name: string, weight: number) {
     this.id = id;
-    this.text = text;
+    this.name = name;
     this.weight = weight;
   }
 }

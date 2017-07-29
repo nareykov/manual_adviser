@@ -27,7 +27,7 @@
   <div>
     <h2 [routerLink]="['/editinstruction/', manual.id]">{{manual.name}}</h2>
     <h5><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}, {{manual.date}}.</h5>
-    <h5><span *ngFor="let tag of manual.tags" class="label label-danger">{{tag.text}}</span> </h5>
+    <h5><span *ngFor="let tag of manual.tags" class="label label-danger">{{tag.name}}</span> </h5>
     <p>{{manual.introduction}}</p>
   </div>
 </div>

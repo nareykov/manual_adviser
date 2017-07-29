@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {Manual} from '../../Models/manual';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
+import {Tag} from '../../Models/tag';
 
 @Component({
   selector: 'app-edit-instruction',
@@ -53,4 +54,12 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
     this.manualService.postManual(this.manual);
   }
 
+  addTag(tag) {
+  }
+
+  removeTag(tag) {
+    this.manual.tags = this.manual.tags
+      .filter(b => b.name !== tag.name);
+    console.log(this.manual.tags);
+  }
 }

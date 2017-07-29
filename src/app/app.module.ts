@@ -14,11 +14,11 @@ import {LoginComponent} from './main/login/login.component';
 import { UserComponent } from './main/user/user.component';
 import {FormsModule} from '@angular/forms';
 import { EditInstructionComponent } from './main/edit-instruction/edit-instruction.component';
-import {InfiniteScrollModule} from 'angular2-infinite-scroll';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import {FileUploadModule} from 'ng2-file-upload';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TagInputModule} from 'ngx-chips/dist/modules';
+import { TagInputModule } from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 const appRoutes: Routes = [
