@@ -22,14 +22,12 @@
 
 <div class="lesson-summary" *ngFor="let manual of userProfile.manualDTOS">
   <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn" class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
-    <img class="lesson" src={{manual.image}}>
+    <cl-image class="lesson" [cloud-name]="uploader.cloudName" [public-id]="manual.image" width="140" height="148"></cl-image>
   </a>
   <div>
-    <h2>{{manual.name}}</h2>
-    <img class="rate" src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
-    <p>{{manual.rating}}</p>
+    <h2 [routerLink]="['/editinstruction/', manual.id]">{{manual.name}}</h2>
     <h5><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}, {{manual.date}}.</h5>
-    <h5><span *ngFor="let tag of manual.tagNames" class="label label-danger">{{tag}}</span> </h5>
+    <h5><span *ngFor="let tag of manual.tags" class="label label-danger">{{tag.name}}</span> </h5>
     <p>{{manual.introduction}}</p>
   </div>
 </div>

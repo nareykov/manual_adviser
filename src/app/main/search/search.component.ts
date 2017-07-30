@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from './user';
-import {UserService} from './user.service';
-import {Manual} from './manual';
-import {ManualService} from './manual.service';
-import {Rating} from './rating';
-import {RatingService} from './rating.service';
+import {User} from '../../Models/user';
+import {UserService} from '../../Services/user.service';
+import {Manual} from '../../Models/manual';
+import {ManualService} from '../../Services/manual.service';
+import {Rating} from '../../Models/rating';
+import {RatingService} from '../../Services/rating.service';
 import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
+import {CloudinaryOptions, CloudinaryUploader} from "ng2-cloudinary";
 
 @Component({
   selector: 'app-search',
@@ -23,6 +24,11 @@ export class SearchComponent implements OnInit {
   manuals: Array<Manual> = [];
   estimatedManualIds: Array<number> = [];
 
+
+  uploader: CloudinaryUploader = new CloudinaryUploader(
+    new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
+  );
+
   constructor(private activateRoute: ActivatedRoute, private userService: UserService,
               private manualService: ManualService, private ratingService: RatingService, private router: Router) {
     router.events.subscribe(event => {
@@ -34,7 +40,6 @@ export class SearchComponent implements OnInit {
     this.subscription = activateRoute.params.subscribe(params => this.searchparam = params['searchparam']);
   }
 
-// TODO NavigationEnd
   ngOnInit(): void {
     this.getUsers();
     this.getManuals();

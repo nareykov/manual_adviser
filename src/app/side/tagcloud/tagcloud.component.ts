@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CloudData, CloudOptions} from 'angular-tag-cloud-module';
-import {TagCloudService} from './tag-cloud.service';
+import {TagCloudService} from '../../Services/tag-cloud.service';
 
 @Component({
   selector: 'app-tagcloud',

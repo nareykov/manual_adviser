@@ -27,6 +27,7 @@
     "core-js": "^2.4.1",
     "jqcloud-npm": "^4.0.0",
     "jquery": "^3.2.1",
+    "ng2-cloudinary": "^0.9.2",
     "ng2-dnd": "^4.2.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"

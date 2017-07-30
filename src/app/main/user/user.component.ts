@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
-import {UserProfileService} from './user-profile.service';
-import {UserProfile} from './user-profile';
-import {ManualService} from '../search/manual.service';
+import {UserProfileService} from '../../Services/user-profile.service';
+import {UserProfile} from '../../Models/user-profile';
+import {ManualService} from '../../Services/manual.service';
+import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 
 
 @Component ({
@@ -23,6 +24,10 @@ export class UserComponent implements OnDestroy, OnInit {
   @ViewChild('originTag')
   originTag: any;
   router: Router;
+
+  uploader: CloudinaryUploader = new CloudinaryUploader(
+    new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
+  );
 
   constructor(private activateRoute: ActivatedRoute, private userProfileService: UserProfileService,
               private manualService: ManualService, router: Router) {
@@ -50,6 +55,5 @@ export class UserComponent implements OnDestroy, OnInit {
 
   newInstruction() {
     this.manualService.newInstruction().subscribe();
-    // this.router.navigateByUrl('/editinstruction/' + this.instructionId);
   }
 }
