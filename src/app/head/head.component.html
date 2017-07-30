@@ -17,35 +17,37 @@
       <li><a routerLink="/popular">POPULAR</a></li>
     </ul>
 
-    <div class="">
-      <!--<form class="navbar-form" role="search">-->
-        <div class="input-group col-lg-offset-2 col-lg-6 col-md-offset-2 col-md-5" >
-          <div class="search menu configuration col-lg-8 col-md-7 ">
-            <input type="text" class="form-control input_design" placeholder="Search" [(ngModel)]="searchparam" id="srch-term">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit" [routerLink]="['/search', searchparam]"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-          </div>
-          <div class=" col-lg-2 col-md-2">
-            <a class="login navbar-brand" routerLink="/login/">LOGIN</a>
-          </div>
-          <div class="dropdown col-lg-1 col-md-1">
-            <a class="fa fa-2x fa-cog confButton dropdown-toggle" data-toggle="dropdown"></a>
-            <span class="caret" style=" visibility: hidden;"></span>
-            <ul role="menu" class="dropdown-menu">
-
-              <li >
-                <div class="span9">Lang<input type="checkbox" checked data-toggle="toggle" data-on="En" data-off="Ru" data-size="mini"></div>
-              </li>
-
-            </ul>
-          </div>
+    <!--<div class="">-->
+    <!--<form class="navbar-form" role="search">-->
+    <div class="input-group col-lg-offset-2 col-lg-6 col-md-offset-2 col-md-5 rightnavbar" >
+      <div class="search menu configuration col-lg-8 col-md-7 ">
+        <input type="text" class="form-control input_design" placeholder="Search" [(ngModel)]="searchparam" id="srch-term">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit" [routerLink]="['/search', searchparam]"><i class="glyphicon glyphicon-search"></i></button>
         </div>
+      </div>
+      <div class=" col-lg-2 col-md-2">
+        <a class="login navbar-brand" routerLink="/login/">LOGIN</a>
+      </div>
+      <div class="dropdown col-lg-1 col-md-1">
+        <a class="fa fa-2x fa-cog confButton dropdown-toggle" data-toggle="dropdown"></a>
+        <span class="caret" style=" visibility: hidden;"></span>
+        <ul role="menu" class="dropdown-menu">
 
-      <!--</form>-->
-
-
+          <li>
+            <div class="dropdownContext1 ">English<input type="checkbox" checked data-toggle="toggle"  data-onstyle="success" data-size="mini" class="toggle"></div>
+          </li>
+          <li>
+            <div class="dropdownContext2 theme">Dark            <input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-size="mini" class="toggle "></div>
+          </li>
+        </ul>
+      </div>
     </div>
+
+    <!--</form>-->
+
+
+    <!--</div>-->
   </div>
 </div>
 
