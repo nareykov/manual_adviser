@@ -64,7 +64,7 @@ export class SearchComponent implements OnInit {
 
   estimate(userId: number, manualId: number, value: number) {
     this.ratingService.saveRating(new Rating(userId, manualId, value));
-    this.manuals[manualId].rating += value;
+    this.manuals.find(m => m.id === manualId).rating += value;
     this.estimatedManualIds.push(manualId);
   }
 

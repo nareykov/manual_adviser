@@ -127,31 +127,56 @@
 
 }
 
-.button_arrow{
-  border-radius: 5px !important;
-  border-color: #FFFFFF !important;
-
+.likes-wrap {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin: 2px;
 }
 
-.rating div{
-  display: block;
+.like {
+  font-size:24px;
+  color: forestgreen;
+  text-decoration: none;
 }
 
-.rating_num{
-  margin-top: 3px;
-  margin-bottom: 3px;
-  text-align: center;
-  padding-right: 1px;
+.like :hover {
+  font-size:24px;
+  color: darkgreen;
+  text-decoration: none;
 }
 
-.rating_uparrow{
-  margin-top: 10px;
+.dislike {
+  font-size:24px;
+  color: #d9534f;
+  text-decoration: none;
 }
 
-.button_uparrow:hover{
-  color: chartreuse;
-}
-
-.button_downarrow:hover{
+.dislike :hover {
+  font-size:24px;
   color: red;
+  text-decoration: none;
+}
+
+.rating_num {
+  display: inline-block;
+  margin-bottom: 0px;
+  font-size: 21px;
+}
+
+.username {
+  font-size: 12px;
+}
+
+.date {
+  font-size: 12px;
+}
+
+.tag {
+  margin-right: 2px;
+}
+
+.manualName {
+  margin-top: 3px;
+  font-size: 22px;
 }

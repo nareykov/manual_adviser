@@ -1,4 +1,5 @@
 import {Tag} from './tag';
+import {Step} from './step';
 
 export class Manual {
   id: number;
@@ -11,6 +12,7 @@ export class Manual {
   userId: number;
   rating: number;
   tags: Array<Tag>;
+  steps: Array<Step>;
 
   constructor() {
     this.name = 'НОВАЯ ИНСТРУКЦИЯ';

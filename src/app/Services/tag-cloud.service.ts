@@ -27,7 +27,6 @@ export class TagCloudService {
         const tagsList = resp.json();
         const tags: CloudData[] = [];
         for (const index in tagsList) {
-          console.log(tagsList[index]);
           const tag = tagsList[index];
           tags.push({text: tag.name, weight: tag.weight, link: 'http://localhost:4200/search/@' + tag.name, color: this.getRandomColor()});
         }

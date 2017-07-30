@@ -1,19 +1,78 @@
-<div class="main-image-wrap">
-  <cl-image [public-id]="manual.image" [cloud-name]="uploader.cloudName" width="256" height="256"></cl-image>
-  <div class="photobtn">
-    <label title="Add photo" class="btn btn-primary btn-lg">
-      <span class="glyphicon glyphicon-picture " style="color:aliceblue"></span>
-      Поменять фотку, епта
-      <input class="hidden" type="file" ng2FileSelect [uploader]="uploader" (change)="upload()" />
-    </label>
+
+
+<div class="col-sm-4">
+  <div class="main-image-wrap">
+    <cl-image [public-id]="manual.image" [cloud-name]="uploader.cloudName" width="256" height="256"></cl-image>
+    <div class="photobtn">
+      <label title="Add photo" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-picture " style="color:aliceblue"></span>
+        Поменять фотку, епта
+        <input class="hidden" type="file" ng2FileSelect [uploader]="uploader" (change)="upload()" />
+      </label>
+    </div>
+
+  </div>
+</div>
+
+<div class="col-sm-8">
+  <div class="header-wrap">
+    <h1 #nameTag contenteditable="true" (blur)="infoChanged()">{{manual.name}}</h1>
+    <tag-input [(ngModel)]="manual.tags" [identifyBy]="'id'" [displayBy]="'name'" (onAdd)="addTag($event)" (onRemove)="removeTag()"></tag-input>
+    <h5 #introductionTag contenteditable="true" (blur)="infoChanged()">{{manual.introduction}}</h5>
   </div>
 
+  <div class="row">
+    <div class="col-sm-12 ">
+      <div class="panel panel-success">
+        <div class="panel-heading header">
+          Stepname
+        </div>
+        <div class="panel-body">
+          <ul class="list-group" dnd-sortable-container [sortableData]="manual.steps">
+            <li *ngFor="let step of manual.steps; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
+              <div  [froalaView]="step.name"></div>
+              <span class="elem-delete" (click)="deleteUnit(i)"><i class="fa fa-times" aria-hidden="true"></i></span>
+            </li>
+          </ul>
+        </div>
+        <div class="buttonDiv">
+        <span class="buttonSpan">
+          <button class="btn btn-success glyphicon glyphicon-font" data-toggle="modal" data-target="#textModal"></button>
+        </span>
+        </div>
+
+
+        <div class="container">
+          <!-- Modal -->
+          <div class="modal fade" id="textModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <input [(ngModel)]="stepName" class="input_step" placeholder="name">
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addText()">
+                    Send
+                  </button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
-<div class="header-wrap">
-  <h1 #nameTag contenteditable="true" (blur)="infoChanged()">{{manual.name}}</h1>
-  <tag-input [(ngModel)]="manual.tags" [identifyBy]="'id'" [displayBy]="'name'" (onAdd)="addTag($event)" (onRemove)="removeTag()"></tag-input>
-  <h5 #introductionTag contenteditable="true" (blur)="infoChanged()">{{manual.introduction}}</h5>
-</div>
 
 

@@ -1,4 +1,7 @@
 export class Unit {
+  id: number;
+  stepId: number;
+  order: number;
   content: string;
   type: string;
 

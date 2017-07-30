@@ -4,6 +4,8 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {Manual} from '../../Models/manual';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
+import {Unit} from '../../Models/unit';
+import {Step} from "../../Models/step";
 
 @Component({
   selector: 'app-edit-instruction',
@@ -20,7 +22,9 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
   nameTag: any;
   @ViewChild('introductionTag')
   introductionTag: any;
-  items = ['Pizza', 'Pasta', 'Parmesan'];
+  stepName: string;
+  // units: Array<Unit> = [new Unit('text', 'Coffee'), new Unit('text', 'Orange Juice'), new Unit('text', 'Red Wine'),
+  //   new Unit('text', 'Unhealthy drink!'), new Unit('text', 'Water')];
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
   );
@@ -61,6 +65,15 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
     tag.id = 0;
     this.manualService.postTag(tag).subscribe(data => tag.id = Number(data.text()));
     this.infoChanged();
+  }
+
+  addText() {
+    //this.manual.steps.push(new Step(99, this.stepName, 99));
+    this.stepName = '';
+  }
+
+  deleteUnit(index: number) {
+    this.manual.steps.splice(index, 1);
   }
 
   getTags() {

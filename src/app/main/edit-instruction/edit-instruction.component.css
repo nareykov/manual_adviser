@@ -14,7 +14,6 @@
 .header-wrap {
   margin-top: 30px;
   width: 550px;
-  margin-left: 30px;
   display: inline-block;
 }
 
@@ -23,4 +22,22 @@
   text-align: center;
 }
 
+.input_step {
+  width:100%;
+}
 
+.elem-delete {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 40px;
+  height: 20px;
+  color: darkred;
+  text-align: center;
+  transition: all 0.9s;
+}
+
+.elem-delete:hover{
+  background-color: darkred;
+  color: #FFFFFF;
+}
