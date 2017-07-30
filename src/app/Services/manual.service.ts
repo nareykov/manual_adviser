@@ -60,4 +60,10 @@ export class ManualService {
         return resp.json();
       });
   }
+
+  postTag(tag: Tag) {
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
+    return this.http.post('http://localhost:8080/addtag', tag, options);
+  }
 }

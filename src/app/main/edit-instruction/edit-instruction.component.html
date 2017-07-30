@@ -12,9 +12,7 @@
 
 <div class="header-wrap">
   <h1 #nameTag contenteditable="true" (blur)="infoChanged()">{{manual.name}}</h1>
-  <tag-input [(ngModel)]="manual.tags" [identifyBy]="'id'" [displayBy]="'name'" (onAdd)="addTag($event)" (onRemove)="removeTag()">
-    <tag-input-dropdown [autocompleteItems]="['iTem1', 'item2', 'item3']"></tag-input-dropdown>
-  </tag-input>
+  <tag-input [(ngModel)]="manual.tags" [identifyBy]="'id'" [displayBy]="'name'" (onAdd)="addTag($event)" (onRemove)="removeTag()"></tag-input>
   <h5 #introductionTag contenteditable="true" (blur)="infoChanged()">{{manual.introduction}}</h5>
 </div>
 

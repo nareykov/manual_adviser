@@ -18,12 +18,18 @@ import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import {FileUploadModule} from 'ng2-file-upload';
 import { TagInputModule } from 'ngx-chips';
+import {EditStepComponent} from './main/edit-step/edit-step.component';
+import {DndModule} from 'ng2-dnd';
+import {SavePipe} from './main/edit-step/save.pipe';
+import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
+
 // import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'search/:searchparam', component: SearchComponent},
   {path: 'popular', component: PopularComponent},
+  {path: 'editstep', component: EditStepComponent},
   {path: 'user/:id', component: UserComponent},
   {path: 'editinstruction/:manualId', component: EditInstructionComponent},
   {path: '**', redirectTo: '/popular'}
@@ -39,8 +45,10 @@ const appRoutes: Routes = [
     PopularComponent,
     LoginComponent,
     TagcloudComponent,
+    SavePipe,
     UserComponent,
-    EditInstructionComponent
+    EditInstructionComponent,
+    EditStepComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +60,9 @@ const appRoutes: Routes = [
     Ng2CloudinaryModule,
     FileUploadModule,
     TagInputModule,
+    DndModule.forRoot(),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
     // BrowserAnimationsModule
   ],
   providers: [],

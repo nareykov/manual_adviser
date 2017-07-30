@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angular-froala-wysiwyg": "^1.0.0",
     "angular-tag-cloud-module": "^1.4.0",
     "angular2-infinite-scroll": "^0.3.5",
     "auth0-js": "^8.8.0",

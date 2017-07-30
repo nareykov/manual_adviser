@@ -54,13 +54,13 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
   }
 
   removeTag(tag) {
-    tag.id = 'hui';
-    // this.manual.tags = this.manual.tags.filter(t => t.name !== tag.text);
-    console.log(this.manual.tags);
+    this.infoChanged();
   }
 
   addTag(tag) {
-    tag.id = 20;
+    tag.id = 0;
+    this.manualService.postTag(tag).subscribe(data => tag.id = Number(data.text()));
+    this.infoChanged();
   }
 
   getTags() {

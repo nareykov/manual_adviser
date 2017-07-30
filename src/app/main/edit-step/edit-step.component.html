@@ -1,0 +1,109 @@
+
+
+
+
+<div class="row">
+  <div class="col-sm-12 ">
+    <div class="panel panel-success">
+      <div class="panel-heading header">
+        Stepname
+      </div>
+      <div class="panel-body">
+        <ul class="list-group" dnd-sortable-container [sortableData]="units">
+          <li *ngFor="let unit of units; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
+
+            <div *ngIf="unit.type=='video'" class=" " style="text-align: center">
+              <iframe [src]="parseYoutubeUrl(unit.content) | save" width="560"
+                      height="315" allowfullscreen></iframe>
+            </div>
+            <div *ngIf="unit.type=='text'" class=" " >
+              <div  [froalaView]="unit.content"></div>
+            </div>
+            <div *ngIf="unit.type=='image'" style="text-align: center">
+              <img height="315" src="{{unit.content}}" />
+            </div>
+
+            <span class="elem-delete" (click)="deleteUnit(i)"><i class="fa fa-times" aria-hidden="true"></i></span>
+          </li>
+        </ul>
+      </div>
+      <div class="buttonDiv">
+        <span class="buttonSpan">
+          <button class="btn btn-success glyphicon glyphicon-font" data-toggle="modal" data-target="#textModal"></button>
+
+           <label title="Add photo" class="btn btn-success glyphicon glyphicon-camera">
+               <input class="hidden" type="file" ng2FileSelect [uploader]="uploader" (change)="upload()"/>
+           </label>
+           <button class="btn btn-success glyphicon glyphicon-play" data-toggle="modal" data-target="#videoModal"></button>
+        </span>
+      </div>
+
+
+
+      <div class="container">
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="videoModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="modal-body">
+                <input type="text" [(ngModel)]="newVideoName" class="input_url-line"
+                       placeholder="Insert YouTube link...">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addVideo(newVideoName)">
+                  Send
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="container">
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="textModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="modal-body">
+                <div [froalaEditor] [(froalaModel)]="editorContent"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addText()">
+                  Send
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
