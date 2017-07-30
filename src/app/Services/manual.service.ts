@@ -7,6 +7,7 @@ import {Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {Router} from '@angular/router';
+import {Tag} from '../Models/tag';
 
 
 @Injectable()
@@ -51,5 +52,12 @@ export class ManualService {
     const options = new RequestOptions({ headers: headers });
     return this.http.post('http://localhost:8080/updatemanual/', manual, options)
       .subscribe();
+  }
+
+  getTags(): Observable<Tag[]> {
+    return this.http.get('http://localhost:8080/tags')
+      .map((resp: Response) => {
+        return resp.json();
+      });
   }
 }

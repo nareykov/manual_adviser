@@ -20,7 +20,7 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
   nameTag: any;
   @ViewChild('introductionTag')
   introductionTag: any;
-
+  items = ['Pizza', 'Pasta', 'Parmesan'];
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
   );
@@ -51,5 +51,19 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
     this.manual.name = this.nameTag.nativeElement.textContent;
     this.manual.introduction = this.introductionTag.nativeElement.textContent;
     this.manualService.postManual(this.manual);
+  }
+
+  removeTag(tag) {
+    tag.id = 'hui';
+    // this.manual.tags = this.manual.tags.filter(t => t.name !== tag.text);
+    console.log(this.manual.tags);
+  }
+
+  addTag(tag) {
+    tag.id = 20;
+  }
+
+  getTags() {
+    this.manualService.getTags();
   }
 }

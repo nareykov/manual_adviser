@@ -17,6 +17,8 @@ import { EditInstructionComponent } from './main/edit-instruction/edit-instructi
 import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import {FileUploadModule} from 'ng2-file-upload';
+import { TagInputModule } from 'ngx-chips';
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -48,7 +50,9 @@ const appRoutes: Routes = [
     FormsModule,
     InfiniteScrollModule,
     Ng2CloudinaryModule,
-    FileUploadModule
+    FileUploadModule,
+    TagInputModule,
+    // BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
