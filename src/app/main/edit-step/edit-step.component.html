@@ -6,11 +6,11 @@
   <div class="col-sm-12 ">
     <div class="panel panel-success">
       <div class="panel-heading header">
-        Stepname
+        {{step.name}}
       </div>
       <div class="panel-body">
-        <ul class="list-group" dnd-sortable-container [sortableData]="units">
-          <li *ngFor="let unit of units; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
+        <ul class="list-group" dnd-sortable-container [sortableData]="step.units">
+          <li *ngFor="let unit of step.units; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
 
             <div *ngIf="unit.type=='video'" class=" " style="text-align: center">
               <iframe [src]="parseYoutubeUrl(unit.content) | save" width="560"

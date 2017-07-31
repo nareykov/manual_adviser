@@ -41,3 +41,8 @@
   background-color: darkred;
   color: #FFFFFF;
 }
+
+.buttonDiv {
+  text-align: center;
+  margin-bottom: 7px;
+}

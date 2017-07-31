@@ -5,8 +5,10 @@ export class Unit {
   content: string;
   type: string;
 
-  constructor(type: string, content: string) {
+  constructor(stepId: number, type: string, content: string, order: number) {
+    this.stepId = stepId;
     this.type = type;
     this.content = content;
+    this.order = order;
   }
 }
