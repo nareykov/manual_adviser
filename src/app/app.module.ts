@@ -29,7 +29,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'search/:searchparam', component: SearchComponent},
   {path: 'popular', component: PopularComponent},
-  {path: 'editstep', component: EditStepComponent},
+  {path: 'editstep/:stepId', component: EditStepComponent},
   {path: 'user/:id', component: UserComponent},
   {path: 'editinstruction/:manualId', component: EditInstructionComponent},
   {path: '**', redirectTo: '/popular'}

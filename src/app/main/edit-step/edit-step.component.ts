@@ -1,17 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {Unit} from '../../Models/unit';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
+import {ActivatedRoute} from '@angular/router';
+import {StepService} from '../../Services/step.service';
+import * as url from 'url';
+import {Step} from '../../Models/step';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-edit-step',
   templateUrl: './edit-step.component.html',
-  styleUrls: ['./edit-step.component.css']
+  styleUrls: ['./edit-step.component.css'],
+  providers: [StepService]
 })
-export class EditStepComponent { // } implements OnInit {
+export class EditStepComponent implements OnInit {
 
-  units: Array<Unit> = [new Unit('text', 'Coffee'), new Unit('text', 'Orange Juice'), new Unit('text', 'Red Wine'),
-    new Unit('text', 'Unhealthy drink!'), new Unit('text', 'Water')];
-
+  stepId: number;
+  step: Step;
+  private subscription: Subscription;
   imageId: string;
   cloudinaryImage: any;
   newVideoName: string;
@@ -21,38 +27,44 @@ export class EditStepComponent { // } implements OnInit {
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k'}));
 
-
-  parseYoutubeUrl(url: string): string {
-    return 'https://www.youtube.com/embed/' + url.split('watch?v=').pop() + '?ecver=1';
-  }
-
-  addVideo(content: string) {
-    this.units.push(new Unit('video', content));
-  }
-
-  addImage(public_id: string) {
-    this.units.push(new Unit('image', 'http://res.cloudinary.com/' + this.uploader.cloudName
-      + '/image/upload/v1501353111/' + public_id + '.jpg'));
-    console.log();
-  }
-
-  addText() {
-    this.units.push(new Unit('text', this.editorContent));
-    this.editorContent = '';
-  }
-
-  deleteUnit(index: number) {
-    this.units.splice(index, 1);
-  }
-
-
-  constructor() {
+  constructor(private activateRoute: ActivatedRoute, private stepService: StepService) {
+    this.subscription = activateRoute.params.subscribe(params => this.stepId = params['stepId']);
     this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
       const res: any = JSON.parse(response);
       //  this.manual.image = res.public_id;
       this.addImage(res.public_id);
       return {item, response, status, headers};
     };
+  }
+
+  ngOnInit() {
+    this.stepService.getStep(this.stepId).subscribe((data) => this.step = data);
+  }
+
+  parseYoutubeUrl(url: string): string {
+    return 'https://www.youtube.com/embed/' + url.split('watch?v=').pop() + '?ecver=1';
+  }
+
+  addVideo(content: string) {
+    // this.step.units.push(new Unit(this.stepId, 'video', content));
+  }
+
+  addImage(public_id: string) {
+    // this.step.units.push(new Unit(this.stepId, 'image', 'http://res.cloudinary.com/' + this.uploader.cloudName
+    //   + '/image/upload/v1501353111/' + public_id + '.jpg'));
+    // console.log();
+  }
+
+  addText() {
+    const unit = new Unit(this.stepId, 'text', this.editorContent, this.step.units.length);
+    this.stepService.postUnit(unit).subscribe(data => unit.id = Number(data.text()));
+    console.log(this.step.units);
+    this.step.units.push(unit);
+    this.editorContent = '';
+  }
+
+  deleteUnit(index: number) {
+    this.step.units.splice(index, 1);
   }
 
   upload() {

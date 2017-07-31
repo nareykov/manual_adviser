@@ -4,14 +4,14 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {Manual} from '../../Models/manual';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
-import {Unit} from '../../Models/unit';
-import {Step} from "../../Models/step";
+import {Step} from '../../Models/step';
+import {StepService} from '../../Services/step.service';
 
 @Component({
   selector: 'app-edit-instruction',
   templateUrl: './edit-instruction.component.html',
   styleUrls: ['./edit-instruction.component.css'],
-  providers: [ManualService]
+  providers: [ManualService, StepService]
 })
 export class EditInstructionComponent implements OnInit, OnDestroy {
 
@@ -22,14 +22,12 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
   nameTag: any;
   @ViewChild('introductionTag')
   introductionTag: any;
-  stepName: string;
-  // units: Array<Unit> = [new Unit('text', 'Coffee'), new Unit('text', 'Orange Juice'), new Unit('text', 'Red Wine'),
-  //   new Unit('text', 'Unhealthy drink!'), new Unit('text', 'Water')];
+  stepName = 'stepname';
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
   );
 
-  constructor(private activateRoute: ActivatedRoute, private manualService: ManualService) {
+  constructor(private activateRoute: ActivatedRoute, private manualService: ManualService, private stepService: StepService) {
     this.subscription = activateRoute.params.subscribe(params => this.manualId = params['manualId']);
     // Override onSuccessItem to retrieve the imageId
     this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
@@ -67,16 +65,24 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
     this.infoChanged();
   }
 
-  addText() {
-    //this.manual.steps.push(new Step(99, this.stepName, 99));
+  addStep() {
+    const step = new Step(this.manual.id, this.stepName, this.manual.steps.length);
+    this.stepService.postStep(step).subscribe(data => step.id = Number(data.text()));
+    this.manual.steps.push(step);
     this.stepName = '';
   }
 
-  deleteUnit(index: number) {
+  deleteStep(index: number) {
+    this.stepService.delete(this.manual.steps[index].id);
     this.manual.steps.splice(index, 1);
+    console.log(this.manual.steps);
   }
 
-  getTags() {
-    this.manualService.getTags();
+  dragStep() {
+    for (const step of this.manual.steps) {
+      step.order = this.manual.steps.indexOf(step);
+    }
+    this.infoChanged();
+    console.log(this.manual.steps);
   }
 }
