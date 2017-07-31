@@ -12,7 +12,7 @@ export class TagcloudComponent implements OnInit {
 
   options: CloudOptions = {
     width: 280,
-    height: 400,
+    height: 550,
     overflow: true,
   };
 

@@ -22,7 +22,7 @@ export class EditStepComponent implements OnInit {
   cloudinaryImage: any;
   newVideoName: string;
   editorContent: string;
-
+// TODO: order нормальный запилить, чтобы при удалении работал
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k'}));
@@ -68,6 +68,17 @@ export class EditStepComponent implements OnInit {
   deleteUnit(index: number) {
     this.stepService.deleteUnit(this.step.units[index].id);
     this.step.units.splice(index, 1);
+  }
+
+  dragStep() {
+    this.setOrder();
+    console.log(this.step.units);
+  }
+
+  setOrder() {
+    for (const unit of this.step.units) {
+      unit.order = this.step.units.indexOf(unit);
+    }
   }
 
   upload() {

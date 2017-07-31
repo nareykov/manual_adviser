@@ -6,7 +6,8 @@
       </div>
       <div class="panel-body">
         <ul class="list-group" dnd-sortable-container [sortableData]="step.units">
-          <li *ngFor="let unit of step.units; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
+          <li *ngFor="let unit of step.units; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i"
+              dnd-draggable [dragEnabled]="true" (onDragSuccess)="dragStep()">
 
             <div *ngIf="unit.type=='video'" class=" " style="text-align: center">
               <iframe [src]="parseYoutubeUrl(unit.content) | save" width="560"
@@ -70,12 +71,9 @@
 
 
       <div class="container">
-
-
         <!-- Modal -->
         <div class="modal fade" id="textModal" role="dialog">
           <div class="modal-dialog modal-lg">
-
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
@@ -92,10 +90,8 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
-
           </div>
         </div>
-
       </div>
 
     </div>
