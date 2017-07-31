@@ -16,7 +16,7 @@ import {Subscription} from 'rxjs/Subscription';
 export class EditStepComponent implements OnInit {
 
   stepId: number;
-  step: Step = new Step(0, '1111', 0);
+  step: Step = new Step(0, '', 0);
   private subscription: Subscription;
   imageId: string;
   cloudinaryImage: any;
