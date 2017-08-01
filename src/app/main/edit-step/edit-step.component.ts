@@ -66,6 +66,7 @@ export class EditStepComponent implements OnInit {
   }
 
   addText() {
+    console.log(this.step.units);
     const unit = new Unit(this.stepId, 'text', this.editorContent, this.step.units.length);
     this.stepService.postUnit(unit).subscribe(data => unit.id = Number(data.text()));
     this.step.units.push(unit);
@@ -79,7 +80,7 @@ export class EditStepComponent implements OnInit {
 
   dragStep() {
     this.setOrder();
-    console.log(this.step.units);
+    this.stepService.updateStep(this.step);
   }
 
   setOrder() {

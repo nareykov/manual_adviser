@@ -23,7 +23,7 @@ import {DndModule} from 'ng2-dnd';
 import {SavePipe} from './main/edit-step/save.pipe';
 import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 import { ManualComponent } from './main/manual/manual.component';
-import { UsersComponent } from './main/src/app/main/users/users.component';
+import { UsersComponent } from './main/users/users.component';
 
 // import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -32,6 +32,7 @@ const appRoutes: Routes = [
   {path: 'search/:searchparam', component: SearchComponent},
   {path: 'manual/:manualId', component: ManualComponent},
   {path: 'popular', component: PopularComponent},
+  {path: 'users', component: UsersComponent},
   {path: 'editstep/:stepId', component: EditStepComponent},
   {path: 'user/:id', component: UserComponent},
   {path: 'editinstruction/:manualId', component: EditInstructionComponent},

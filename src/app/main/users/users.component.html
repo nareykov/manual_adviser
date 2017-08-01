@@ -1,3 +1,16 @@
-<p>
-  users works!
-</p>
+<div class="search-result">
+
+  <div *ngFor="let user of users;" class="user-div">
+    <a href="/lesson/Tools-and-Supplies-1/" title="title">
+      <img class="user-img" src="{{user.image}}">
+    </a>
+    <div>
+      <a [routerLink]="['/user', user.id]" class="username"><h4>{{user.username}}</h4></a>
+      <div class="rate-wrap">
+        <img src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
+      </div>
+      <h5><span class="label label-danger">{{user.manualAmount}} manuals</span> <span class="label label-primary">{{user.commentAmount}}comments</span>
+      </h5>
+    </div>
+  </div>
+</div>

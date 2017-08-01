@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from '../../Models/user';
 import {UserService} from '../../Services/user.service';
 import {Manual} from '../../Models/manual';
 import {ManualService} from '../../Services/manual.service';
 import {Rating} from '../../Models/rating';
 import {RatingService} from '../../Services/rating.service';
-import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
-import {CloudinaryOptions, CloudinaryUploader} from "ng2-cloudinary";
+import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 
 @Component({
   selector: 'app-search',
@@ -20,7 +19,6 @@ export class SearchComponent implements OnInit {
   private searchparam: string;
   private subscription: Subscription;
 
-  users: Array<User>;
   manuals: Array<Manual> = [];
   estimatedManualIds: Array<number> = [];
 
@@ -41,13 +39,8 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUsers();
     this.getManuals();
     console.log(this.searchparam);
-  }
-
-  getUsers() {
-    this.userService.getUserArray().subscribe((data) => this.users = data);
   }
 
   getManuals() {
