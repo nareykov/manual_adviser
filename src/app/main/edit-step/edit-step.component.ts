@@ -38,7 +38,7 @@ export class EditStepComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.stepService.getStep(this.stepId).subscribe((data) => this.step = data);
+      this.stepService.getStep(this.stepId).subscribe((data) => this.step = data);
   }
 
   parseYoutubeUrl(url: string): string {
@@ -56,6 +56,10 @@ export class EditStepComponent implements OnInit {
       + '/image/upload/v1501353111/' + public_id + '.jpg', this.step.units.length);
     this.stepService.postUnit(unit).subscribe(data => unit.id = Number(data.text()));
     this.step.units.push(unit);
+  }
+
+  setImageEffect(index: number, effect: string) {
+    this.step.units[index].setEffect(effect);
   }
 
   addText() {
