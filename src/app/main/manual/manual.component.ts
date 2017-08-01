@@ -23,6 +23,9 @@ export class ManualComponent implements OnInit {
   @ViewChild('introductionTag')
   introductionTag: any;
   modelHeader = '';
+  stepIndex: number;
+  showRightArrow = false;
+  showLeftArrow = false;
   modelContent = new Step(0, '', 0) ;
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
@@ -47,7 +50,35 @@ export class ManualComponent implements OnInit {
   }
 
   showStep(i) {
+    this.stepIndex = i;
+    this.showArrows(i);
     this.modelHeader = this.manual.steps[i].name;
     this.modelContent = this.manual.steps[i];
+  }
+
+  showArrows(i) {
+    if (i === 0) {
+      this.showLeftArrow = false;
+    } else {
+      this.showLeftArrow = true;
+    }
+    if (i === this.manual.steps.length - 1) {
+      this.showRightArrow = false;
+    } else {
+      this.showRightArrow = true;
+    }
+  }
+
+  hideArrows() {
+    this.showLeftArrow = false;
+    this.showRightArrow = false;
+  }
+
+  showLeftStep() {
+    this.showStep(--this.stepIndex);
+  }
+
+  showRightStep() {
+    this.showStep(++this.stepIndex);
   }
 }

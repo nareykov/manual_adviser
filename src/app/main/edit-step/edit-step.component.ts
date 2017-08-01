@@ -59,7 +59,10 @@ export class EditStepComponent implements OnInit {
   }
 
   setImageEffect(index: number, effect: string) {
-    this.step.units[index].setEffect(effect);
+    this.step.units[index].content = this.step.units[index].content.substr(0, 49) + effect +
+      this.step.units[index].content.substr(-36, 36);
+    this.stepService.postUnit(this.step.units[index]).subscribe();
+    console.log(effect);
   }
 
   addText() {

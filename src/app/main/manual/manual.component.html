@@ -21,7 +21,8 @@
         </div>
         <div class="panel-body">
           <ul class="list-group">
-            <li *ngFor="let step of manual.steps; let i = index" class="list-group-item" (click)="showStep(i)" data-toggle="modal" data-target="#stepModal">
+            <li *ngFor="let step of manual.steps; let i = index" class="list-group-item"
+                (click)="showStep(i)" data-toggle="modal" data-target="#stepModal">
               <div [froalaView]="step.name"></div>
             </li>
           </ul>
@@ -41,7 +42,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" (click)="hideArrows()">&times;</button>
           <h4 class="modal-title">{{modelHeader}}</h4>
         </div>
         <div class="modal-body">
@@ -66,4 +67,16 @@
     </div>
   </div>
 
+</div>
+
+<div class="div_right_arrow" *ngIf="showRightArrow">
+  <a class="arrow" (click)="showRightStep()">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+<div class="div_left_arrow"  *ngIf="showLeftArrow">
+  <a class="arrow" (click)="showLeftStep()">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
 </div>

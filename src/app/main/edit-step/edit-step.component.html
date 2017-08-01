@@ -17,8 +17,22 @@
               <div  [froalaView]="unit.content"></div>
             </div>
             <div *ngIf="unit.type=='image'" style="text-align: center">
-              <img height="315" src="{{unit.content}}" />
+              <div  class="div_image">
+                <div class="div_effects">
+                  <a class="empty" (click)="setImageEffect(i, '')">
+                    <span class="fa fa-circle-o"  aria-hidden="true"></span>
+                  </a><br>
+                  <a class="black" (click)="setImageEffect(i, 'e_art:audrey/')">
+                    <span class="glyphicon glyphicon-adjust"></span>
+                  </a><br>
+                  <a class="sun" (click)="setImageEffect(i, 'e_art:sizzle/')">
+                    <span class="glyphicon glyphicon-certificate"></span>
+                  </a>
+                </div>
+                <img height="315" src="{{unit.content}}" />
+              </div>
             </div>
+
 
             <span class="elem-delete" (click)="deleteUnit(i)"><i class="fa fa-times" aria-hidden="true"></i></span>
           </li>

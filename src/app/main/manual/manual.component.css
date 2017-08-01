@@ -42,3 +42,29 @@
 .modallist {
   border: none;
 }
+
+.div_right_arrow {
+  position: fixed;
+  top: 45%;
+  right: 6%;
+  z-index: 9999;
+}
+
+.div_left_arrow {
+  position: fixed;
+  top: 45%;
+  left: 6%;
+  z-index: 9999;
+}
+
+.arrow {
+  font-size: 60px;
+  color: #eee;
+  text-decoration: none;
+}
+
+.arrow :hover {
+  font-size: 60px;
+  color: #cccccc ;
+  text-decoration: none;
+}

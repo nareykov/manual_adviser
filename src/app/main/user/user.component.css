@@ -8,7 +8,6 @@
   height: 150px;
   width: 430px;
   position: relative;
-  overflow: hidden;
   display: inline-block;
 }
 
@@ -156,3 +155,37 @@
   font-size: 21px;
 }
 
+.overflow_div {
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+}
+
+.elem-delete {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 30px;
+  height: 20px;
+  color: darkred;
+  text-align: center;
+  transition: all 0.9s;
+}
+
+.elem-delete:hover{
+  background-color: darkred;
+  color: #FFFFFF;
+}
+
+.date {
+  font-size: 12px;
+}
+
+.tag {
+  margin-right: 2px;
+}
+
+.manualName {
+  margin-top: 3px;
+  font-size: 22px;
+}

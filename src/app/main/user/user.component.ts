@@ -56,4 +56,9 @@ export class UserComponent implements OnDestroy, OnInit {
   newInstruction() {
     this.manualService.newInstruction().subscribe();
   }
+
+  deleteManual(i) {
+    this.manualService.delete(this.userProfile.manualDTOS[i].id);
+    this.userProfile.manualDTOS.splice(i, 1);
+  }
 }

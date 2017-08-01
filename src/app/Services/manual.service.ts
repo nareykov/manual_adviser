@@ -66,4 +66,9 @@ export class ManualService {
     const options = new RequestOptions({headers: headers});
     return this.http.post('http://localhost:8080/addtag', tag, options);
   }
+
+  delete(manualId: number) {
+    return this.http.get('http://localhost:8080/deletemanual/' + manualId)
+      .subscribe();
+  }
 }

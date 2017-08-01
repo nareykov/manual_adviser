@@ -34,3 +34,45 @@
   background-color: darkred;
   color: #FFFFFF;
 }
+
+.div_image {
+  display: inline-block;
+  position: relative;
+}
+
+.div_effects {
+  position: absolute;
+  top: 0px;
+  right: -40px;
+}
+
+.div_effects a {
+  text-decoration: none;
+}
+
+.empty {
+  margin-right: -6px;
+  font-size: 33px;
+  color: gray;
+}
+
+.empty :hover {
+  color: #444444;
+}
+
+.black {
+  margin-right: -2px;
+  color: black;
+}
+
+.black :hover {
+  color: #444444;
+}
+
+.sun {
+  color: orange;
+}
+
+.sun :hover{
+  color: chocolate;
+}

@@ -48,7 +48,6 @@
   height: 150px;
   width: 430px;
   position: relative;
-  overflow: hidden;
   display: inline-block;
 }
 
@@ -179,4 +178,10 @@
 .manualName {
   margin-top: 3px;
   font-size: 22px;
+}
+
+.overflow_div {
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  text-overflow: ellipsis; /* Добавляем многоточие */
 }

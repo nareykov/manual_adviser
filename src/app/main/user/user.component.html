@@ -20,15 +20,15 @@
 
 <hr>
 
-<div class="lesson-summary" *ngFor="let manual of userProfile.manualDTOS">
+<div class="lesson-summary" *ngFor="let manual of userProfile.manualDTOS; let i = index">
   <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn" class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
     <cl-image class="lesson" [cloud-name]="uploader.cloudName" [public-id]="manual.image" width="140" height="148"></cl-image>
   </a>
   <div>
-    <h2 [routerLink]="['/editinstruction/', manual.id]">{{manual.name}}</h2>
-    <h5><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}, {{manual.date}}.</h5>
-    <h5><span *ngFor="let tag of manual.tags" class="label label-danger">{{tag.name}}</span> </h5>
-    <p>{{manual.introduction}}</p>
+    <h2 [routerLink]="['/editinstruction/', manual.id]" class="overflow_div manualName">{{manual.name}}</h2>
+    <h5 class="overflow_div username"><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}, {{manual.date}}.</h5>
+    <h5 class="overflow_div date"><span *ngFor="let tag of manual.tags" class="tag label label-danger">{{tag.name}}</span> </h5>
+    <p class="overflow_div">{{manual.introduction}}</p>
   </div>
   <div class="likes-wrap">
     <a class="like">
@@ -39,6 +39,8 @@
       <span class="glyphicon glyphicon-thumbs-down"></span>
     </a>
   </div>
+
+  <span class="elem-delete" (click)="deleteManual(i)"><i class="fa fa-times" aria-hidden="true"></i></span>
 </div>
 
 <div class="newButtonDiv">

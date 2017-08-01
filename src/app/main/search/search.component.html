@@ -52,11 +52,11 @@
         <cl-image class="lesson" [cloud-name]="uploader.cloudName" [public-id]="manual.image" width="140" height="148"></cl-image>
       </a>
       <div>
-        <h2 class name="manualName">{{manual.name}}</h2>
-        <h5 class="username"><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}</h5>
-        <h5 class="date"> {{manual.date}}</h5>
-        <h5><span *ngFor="let tag of manual.tags; " class="tag label label-danger">{{tag.name}}</span></h5>
-        <p>{{manual.introduction}}</p>
+        <h2 [routerLink]="['/editinstruction/', manual.id]" class="overflow_div manualName">{{manual.name}}</h2>
+        <h5 class="overflow_div username"><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}</h5>
+        <h5 class="overflow_div date"> {{manual.date}}</h5>
+        <span *ngFor="let tag of manual.tags" class="tag label label-danger">{{tag.name}}</span>
+        <p class="overflow_div">{{manual.introduction}}</p>
       </div>
       <div class="likes-wrap">
         <a class="like" (click)="estimate(1, manual.id, 1, i)">
