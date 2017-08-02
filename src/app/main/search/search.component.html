@@ -40,7 +40,7 @@
         <h2 [routerLink]="['/manual/', manual.id]" class="overflow_div manualName">{{manual.name}}</h2>
         <h5 class="overflow_div username"><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}</h5>
         <h5 class="overflow_div date"> {{manual.date}}</h5>
-        <span *ngFor="let tag of manual.tags" class="tag label label-danger">{{tag.name}}</span>
+        <h5 class="overflow_div date"><span *ngFor="let tag of manual.tags" class="tag label label-danger">{{tag.name}}</span> </h5>
         <p class="overflow_div">{{manual.introduction}}</p>
       </div>
       <div class="likes-wrap">
@@ -48,7 +48,7 @@
           <span class="glyphicon glyphicon-thumbs-up"></span>
         </a>
         <h3 class="rating_num">{{manual.rating}}</h3>
-        <a class="dislike" (click)="estimate(1, manual.id, 1, i)">
+        <a class="dislike" (click)="estimate(1, manual.id, -1, i)">
           <span class="glyphicon glyphicon-thumbs-down"></span>
         </a>
       </div>

@@ -38,7 +38,8 @@
         </div>
         <div class="buttonDiv">
         <span class="buttonSpan">
-          <button class="btn btn-success glyphicon glyphicon-plus" data-toggle="modal" data-target="#textModal"></button>
+          <button class="btn btn-success glyphicon glyphicon-plus" data-toggle="modal" data-target="#textModal" style="margin-bottom: 2px;"></button>
+          <button class="btn btn-success" data-toggle="modal" *ngIf="manual.published === false" (click)="publish()">Publish</button>
         </span>
         </div>
 

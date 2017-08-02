@@ -17,7 +17,7 @@ export class UserComponent implements OnDestroy, OnInit {
 
   private id: number;
   private subscription: Subscription;
-  private userProfile: UserProfile;
+  userProfile: UserProfile;
   private instructionId: number;
   @ViewChild('usernameTag')
   usernameTag: any;

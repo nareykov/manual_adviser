@@ -189,3 +189,13 @@
   margin-top: 3px;
   font-size: 22px;
 }
+
+.medal {
+  display: inline-block;
+}
+
+.photobtn {
+  display: inline-block;
+  margin-top: 20px;
+  text-align: center;
+}

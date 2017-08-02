@@ -12,9 +12,18 @@
 
 </div>
 
+<div class="photobtn">
+  <label title="Add photo" class="btn btn-primary btn-lg">
+    <span class="glyphicon glyphicon-picture " style="color:aliceblue"></span>
+    Поменять фотку
+    <input class="hidden" type="file" ng2FileSelect [uploader]="uploader" (change)="upload()" />
+  </label>
+</div>
+
 <div class="medals">
-  <img class="medal" src="https://pp.userapi.com/c841129/v841129339/ba81/LWdruDfe3ps.jpg">
-  <img class="medal" src="https://pp.userapi.com/c841129/v841129339/ba68/U6e6zthhJgw.jpg">
+  <div class="medal" *ngFor="let medal of userProfile.medals; let i = index">
+    <img class="medal" src="{{medal.image}}" data-toggle="tooltip" data-placement="bottom" title="{{medal.text}}">
+  </div>
 
 </div>
 

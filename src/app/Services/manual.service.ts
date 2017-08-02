@@ -24,14 +24,14 @@ export class ManualService {
   }
 
   searchManuals(searchparam: string): Observable<Manual[]> {
-    return this.http.get('http://localhost:8080/manuals/' + searchparam)
+    return this.http.get('http://localhost:8080/manuals/' + searchparam + '/0')
       .map((resp: Response) => {
         return resp.json();
       });
   }
 
   searchManualsByTag(searchparam: string): Observable<Manual[]> {
-    return this.http.get('http://localhost:8080/manuals/bytag/' + searchparam.slice(1))
+    return this.http.get('http://localhost:8080/manuals/bytag/' + searchparam.slice(1) + '/0')
       .map((resp: Response) => {
         return resp.json();
       });
@@ -48,8 +48,8 @@ export class ManualService {
   }
 
   postManual(manual: Manual) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
     return this.http.post('http://localhost:8080/updatemanual/', manual, options)
       .subscribe();
   }

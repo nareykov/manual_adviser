@@ -75,18 +75,21 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
   deleteStep(index: number) {
     this.stepService.delete(this.manual.steps[index].id);
     this.manual.steps.splice(index, 1);
-    this.setOrder()
   }
 
   dragStep() {
     this.setOrder()
     this.infoChanged();
-    console.log(this.manual.steps);
   }
 
   setOrder() {
     for (const step of this.manual.steps) {
       step.order = this.manual.steps.indexOf(step);
     }
+  }
+
+  publish() {
+    this.manual.published = true;
+    this.infoChanged();
   }
 }

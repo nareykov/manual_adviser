@@ -1,4 +1,5 @@
 import {Manual} from './manual';
+import {Medal} from "./medal";
 
 export class UserProfile {
   id: number;
@@ -9,4 +10,5 @@ export class UserProfile {
   date: string;
   origin: string;
   manualDTOS: Array <Manual>;
+  medals: Array<Medal>;
 }
