@@ -23,15 +23,15 @@ export class ManualService {
       });
   }
 
-  searchManuals(searchparam: string): Observable<Manual[]> {
-    return this.http.get('http://localhost:8080/manuals/' + searchparam + '/0')
+  searchManuals(searchparam: string, offset: number): Observable<Manual[]> {
+    return this.http.get('http://localhost:8080/manuals/' + searchparam + '/' + offset)
       .map((resp: Response) => {
         return resp.json();
       });
   }
 
-  searchManualsByTag(searchparam: string): Observable<Manual[]> {
-    return this.http.get('http://localhost:8080/manuals/bytag/' + searchparam.slice(1) + '/0')
+  searchManualsByTag(searchparam: string, offset: number): Observable<Manual[]> {
+    return this.http.get('http://localhost:8080/manuals/bytag/' + searchparam.slice(1) + '/' + offset)
       .map((resp: Response) => {
         return resp.json();
       });

@@ -33,10 +33,23 @@ export class UserComponent implements OnDestroy, OnInit {
               private manualService: ManualService, router: Router) {
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
     this.router = router;
+    // Override onSuccessItem to retrieve the imageId
+    this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
+      const res: any = JSON.parse(response);
+      this.userProfile.image = this.userProfile.image = 'http://res.cloudinary.com/' + this.uploader.cloudName
+        + '/image/upload/v1501353111/' + res.public_id + '.jpg';
+      return { item, response, status, headers };
+    };
+  }
+
+  upload() {
+    this.uploader.uploadAll();
+    this.infoChanged();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.infoChanged();
   }
 
   ngOnInit(): void {

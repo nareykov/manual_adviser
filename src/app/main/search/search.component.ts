@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
 
   manuals: Array<Manual> = [];
   estimatedManualIds: Array<number> = [];
-
+  offset = 10;
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
@@ -40,14 +40,13 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.getManuals();
-    console.log(this.searchparam);
   }
 
   getManuals() {
     if (this.searchparam.charAt(0) === '@') {
-      this.manualService.searchManualsByTag(this.searchparam).subscribe((data) => this.manuals = data);
+      this.manualService.searchManualsByTag(this.searchparam, 0).subscribe((data) => this.manuals = data);
     } else {
-      this.manualService.searchManuals(this.searchparam).subscribe((data) => this.manuals = this.manuals = data);
+      this.manualService.searchManuals(this.searchparam, 0).subscribe((data) => this.manuals = this.manuals = data);
     }
   }
 
@@ -63,9 +62,10 @@ export class SearchComponent implements OnInit {
 
   onScroll() {
     if (this.searchparam.charAt(0) === '@') {
-      this.manualService.searchManualsByTag(this.searchparam).subscribe((data) => this.manuals = this.manuals.concat(data));
+      this.manualService.searchManualsByTag(this.searchparam, this.offset).subscribe((data) => this.manuals = this.manuals.concat(data));
     } else {
-      this.manualService.searchManuals(this.searchparam).subscribe((data) => this.manuals = this.manuals.concat(data));
+      this.manualService.searchManuals(this.searchparam, this.offset).subscribe((data) => this.manuals = this.manuals.concat(data));
     }
+    this.offset += 10;
   }
 }

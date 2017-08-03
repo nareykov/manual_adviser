@@ -68,3 +68,43 @@
   color: #cccccc ;
   text-decoration: none;
 }
+
+.comment_btn {
+  margin-top: 7px;
+}
+
+.avatar {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.comment_wrap {
+  text-align: left;
+}
+
+.comment_username {
+  margin-bottom: 5px;
+  margin-top: 0px;
+  display: inline-block;
+}
+
+.comment_text {
+  font-size: 12px;
+  word-wrap: break-word;
+}
+
+.comment_inline {
+  display: inline-block;
+}
+
+.date {
+  position: absolute;
+  top: -4px;
+  right: 5px;
+  color: #9d9d9d;
+}
+
+.minimal_height {
+  min-width: 100px;
+}

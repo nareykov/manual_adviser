@@ -56,8 +56,8 @@
 }
 
 .avatar {
-  height: 150px;
-  width: 150px;
+  height: 160px;
+  width: 160px;
   margin-right: 2%;
   float: left;
 }
@@ -196,6 +196,12 @@
 
 .photobtn {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 5px;
   text-align: center;
 }
+
+.button_change_photo {
+  font-size: 15px;
+}
+
+
