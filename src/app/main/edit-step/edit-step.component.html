@@ -62,7 +62,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">{{ 'Video' | translate:lang }}</h4>
               </div>
               <div class="modal-body">
                 <input type="text" [(ngModel)]="newVideoName" class="input_url-line"
@@ -92,7 +92,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">{{ 'Text' | translate:lang }}</h4>
               </div>
               <div class="modal-body">
                 <div [froalaEditor] [(froalaModel)]="editorContent"></div>

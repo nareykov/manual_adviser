@@ -5,6 +5,7 @@ import {UserProfileService} from '../../Services/user-profile.service';
 import {UserProfile} from '../../Models/user-profile';
 import {ManualService} from '../../Services/manual.service';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
+import {Language, LocaleService} from 'angular-l10n';
 
 
 @Component ({
@@ -15,6 +16,7 @@ import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 })
 export class UserComponent implements OnDestroy, OnInit {
 
+  @Language() lang: string;
   private id: number;
   private subscription: Subscription;
   userProfile: UserProfile;
@@ -29,7 +31,7 @@ export class UserComponent implements OnDestroy, OnInit {
     new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
   );
 
-  constructor(private activateRoute: ActivatedRoute, private userProfileService: UserProfileService,
+  constructor( private activateRoute: ActivatedRoute, private userProfileService: UserProfileService,
               private manualService: ManualService, router: Router) {
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
     this.router = router;

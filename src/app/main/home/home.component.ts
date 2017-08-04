@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LocaleService, Language } from 'angular-l10n';
+import { Language } from 'angular-l10n';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { LocaleService, Language } from 'angular-l10n';
 export class HomeComponent implements OnInit {
 
   @Language() lang: string;
-  constructor(public locale: LocaleService) { }
+  constructor() { }
 
   ngOnInit() {
   }

@@ -12,9 +12,9 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse" id="myNavbar">
 
     <ul class="nav navbar-nav">
-      <li><a routerLink="/users">USERS</a></li>
-      <li><a href="/manuals/new/">NEW</a></li>
-      <li><a routerLink="/popular">POPULAR</a></li>
+      <li><a routerLink="/users">{{ 'Users' | translate:lang }}</a></li>
+      <li><a href="/manuals/new/">{{ 'New' | translate:lang }}</a></li>
+      <li><a routerLink="/popular">{{ 'Popular' | translate:lang }}</a></li>
     </ul>
 
     <!--<div class="">-->
@@ -29,10 +29,10 @@
         </div>
       </div>
       <div *ngIf="(!authService.isAuthenticated())" class=" col-lg-2 col-md-2">
-        <a class="login navbar-brand" (click)="authService.login()">LOGIN</a>
+        <a class="login navbar-brand" (click)="authService.login()">{{ 'Login' | translate:lang }}</a>
       </div>
       <div *ngIf="(authService.isAuthenticated())" class=" col-lg-2 col-md-2">
-        <a class="login navbar-brand" (click)="authService.logout()">LOGOUT</a>
+        <a class="login navbar-brand" (click)="authService.logout()">{{ 'Logout' | translate:lang }}</a>
       </div>
       <div class="dropdown col-lg-1 col-md-1">
         <a class="fa fa-2x fa-cog confButton dropdown-toggle" data-toggle="dropdown"></a>

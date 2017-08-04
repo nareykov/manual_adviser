@@ -7,6 +7,7 @@ import {RatingService} from '../../Services/rating.service';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
+import {Language} from 'angular-l10n';
 
 @Component({
   selector: 'app-search',
@@ -18,7 +19,7 @@ export class SearchComponent implements OnInit {
 
   private searchparam: string;
   private subscription: Subscription;
-
+  @Language() lang: string;
   manuals: Array<Manual> = [];
   estimatedManualIds: Array<number> = [];
   offset = 10;
@@ -27,7 +28,7 @@ export class SearchComponent implements OnInit {
     new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
   );
 
-  constructor(private activateRoute: ActivatedRoute, private userService: UserService,
+  constructor( private activateRoute: ActivatedRoute, private userService: UserService,
               private manualService: ManualService, private ratingService: RatingService, private router: Router) {
     router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {

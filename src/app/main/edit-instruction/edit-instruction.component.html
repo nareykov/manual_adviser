@@ -39,7 +39,7 @@
         <div class="buttonDiv">
         <span class="buttonSpan">
           <button class="btn btn-success glyphicon glyphicon-plus" data-toggle="modal" data-target="#textModal" style="margin-bottom: 2px;"></button>
-          <button class="btn btn-success" data-toggle="modal" *ngIf="manual.published === false" (click)="publish()">Publish</button>
+          <button class="btn btn-success" data-toggle="modal" *ngIf="manual.published === false" (click)="publish()">{{ 'Publish' | translate:lang }}</button>
         </span>
         </div>
 
@@ -58,9 +58,9 @@
                 <input [(ngModel)]="stepName" class="input_step" placeholder="Step name">
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addStep()">
-                    Send
+                    {{ 'Send' | translate:lang }}
                   </button>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'Close' | translate:lang }}</button>
                 </div>
               </div>
 

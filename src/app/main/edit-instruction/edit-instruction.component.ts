@@ -6,6 +6,7 @@ import {Manual} from '../../Models/manual';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 import {Step} from '../../Models/step';
 import {StepService} from '../../Services/step.service';
+import {Language} from "angular-l10n";
 
 @Component({
   selector: 'app-edit-instruction',
@@ -15,6 +16,7 @@ import {StepService} from '../../Services/step.service';
 })
 export class EditInstructionComponent implements OnInit, OnDestroy {
 
+  @Language() lang: string;
   manualId: number;
   private subscription: Subscription;
   manual: Manual;

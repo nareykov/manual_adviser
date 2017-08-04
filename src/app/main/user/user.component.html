@@ -5,9 +5,9 @@
     <h1 #usernameTag contenteditable="true" (blur)="infoChanged()">{{userProfile.username}}</h1>
   </div>
   <div class="inf">
-    <p>Страна: <font #originTag contenteditable="true" (blur)="infoChanged()">{{userProfile.origin}}</font></p>
-    <p>Последняя активность: 12.34.2345</p>
-    <p>Зарегистрирован: {{userProfile.date}}</p>
+    <p>{{ 'Country' | translate:lang }}: <font #originTag contenteditable="true" (blur)="infoChanged()">{{userProfile.origin}}</font></p>
+    <p>{{ 'Register' | translate:lang }}: 12.34.2345</p>
+    <p>{{ 'Last Activity' | translate:lang }}: {{userProfile.date}}</p>
   </div>
 
 </div>
@@ -15,7 +15,7 @@
 <div class="photobtn">
   <label title="Add photo" class="button_change_photo btn btn-primary btn-lg">
     <span class="glyphicon glyphicon-picture " style="color:aliceblue"></span>
-    Поменять фотку
+    {{ 'Change Photo' | translate:lang }}
     <input class="hidden" type="file" ng2FileSelect [uploader]="uploader" (change)="upload()" />
   </label>
 </div>
@@ -35,7 +35,7 @@
   </a>
   <div>
     <h2 [routerLink]="['/editinstruction/', manual.id]" class="overflow_div manualName">{{manual.name}}</h2>
-    <h5 class="overflow_div username"><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}, {{manual.date}}.</h5>
+    <h5 class="overflow_div username"><span class="glyphicon glyphicon-time"></span>  {{ 'Post By' | translate:lang }} {{manual.username}}, {{manual.date}}.</h5>
     <h5 class="overflow_div date"><span *ngFor="let tag of manual.tags" class="tag label label-danger">{{tag.name}}</span> </h5>
     <p class="overflow_div">{{manual.introduction}}</p>
   </div>
@@ -53,5 +53,5 @@
 </div>
 
 <div class="newButtonDiv">
-  <button type="button" class="btn btn-primary" (click)="newInstruction()">+ New instruction</button>
+  <button type="button" class="btn btn-primary" (click)="newInstruction()">+ {{ 'New Instruction' | translate:lang }}</button>
 </div>

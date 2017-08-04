@@ -1,6 +1,31 @@
 {
-  "Title": "Angular localization",
-  "Subtitle": "It's a small world",
-  "Change language": "Change language",
-  "Greeting": "Hi!"
+
+  "Users": "USERS",
+  "Popular": "POPULAR",
+  "New": "NEW",
+  "Login": "LOGIN",
+
+
+  "Country": "Country",
+  "Last Activity": "Last Activity",
+  "Register": "Register",
+  "Change Photo": "Change Photo",
+  "Post By":  "Post By",
+  "New Instruction": "New Instruction",
+
+
+  "Manuals": "Manuals",
+  "Comments": "Comments",
+
+  "Manuals window": "Manuals",
+  "Users window" :"Users",
+
+  "Video" : "Video",
+  "Text": "Text",
+
+  "Publish": "Publish",
+
+  "Send": "Send",
+  "Close": "Close"
+
 }

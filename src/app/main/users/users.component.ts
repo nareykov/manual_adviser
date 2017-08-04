@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../Models/user';
 import {UserService} from '../../Services/user.service';
+import {Language} from 'angular-l10n';
 
 @Component({
   selector: 'app-users',
@@ -10,6 +11,7 @@ import {UserService} from '../../Services/user.service';
 })
 export class UsersComponent implements OnInit {
 
+  @Language() lang: string;
   users: Array<User>;
 
   constructor(private userService: UserService) {

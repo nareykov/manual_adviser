@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from '../Services/auth.service';
-import { LocaleService, Language } from 'angular-l10n';
+import {LocaleService, Language} from 'angular-l10n';
 
 @Component({
   selector: 'app-head',
@@ -10,8 +10,9 @@ import { LocaleService, Language } from 'angular-l10n';
 })
 export class HeadComponent {
   searchparam: string;
+  @Language() lang: string;
 
-  constructor(private authService: AuthService,  public locale: LocaleService) {
+  constructor(private authService: AuthService, public locale: LocaleService) {
   }
 
   selectLanguage(language: string): void {

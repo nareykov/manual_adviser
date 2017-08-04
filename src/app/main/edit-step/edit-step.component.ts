@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {StepService} from '../../Services/step.service';
 import {Step} from '../../Models/step';
 import {Subscription} from 'rxjs/Subscription';
+import {Language} from 'angular-l10n';
 
 
 @Component({
@@ -15,6 +16,7 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class EditStepComponent implements OnInit {
 
+  @Language() lang: string;
   stepId: number;
   step: Step = new Step(0, '', 0);
   private subscription: Subscription;
