@@ -7,7 +7,7 @@ import {UsersComponent} from './main/users/users.component';
 import {EditStepComponent} from './main/edit-step/edit-step.component';
 import {UserComponent} from './main/user/user.component';
 import {EditInstructionComponent} from './main/edit-instruction/edit-instruction.component';
-import {HomeComponent} from "./main/home/home.component";
+import {HomeComponent} from './main/home/home.component';
 
 
 export const appRoutes: Routes = [

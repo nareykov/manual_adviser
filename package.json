@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "angular-froala-wysiwyg": "^1.0.0",
+    "angular-l10n": "^3.4.1",
     "angular-tag-cloud-module": "^1.4.0",
     "angular2-infinite-scroll": "^0.3.5",
     "angular2-jwt": "^0.2.3",

@@ -26,6 +26,7 @@ import { ManualComponent } from './main/manual/manual.component';
 import { UsersComponent } from './main/users/users.component';
 import {appRoutes} from './app.routes';
 import {HomeComponent} from './main/home/home.component';
+import { TranslationModule, LocaleService, TranslationService } from 'angular-l10n';
 
 // import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -59,11 +60,23 @@ import {HomeComponent} from './main/home/home.component';
     TagInputModule,
     DndModule.forRoot(),
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    TranslationModule.forRoot()
     // BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(public locale: LocaleService, public translation: TranslationService) {
+    this.locale.addConfiguration()
+      .addLanguages(['en', 'ru'])
+      .setCookieExpiration(30)
+      .defineLanguage('en');
+
+    this.translation.addConfiguration()
+      .addProvider('./assets/locale-');
+
+    this.translation.init();
+  }
 }

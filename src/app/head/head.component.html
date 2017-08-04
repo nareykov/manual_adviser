@@ -19,11 +19,13 @@
 
     <!--<div class="">-->
     <!--<form class="navbar-form" role="search">-->
-    <div class="input-group col-lg-offset-2 col-lg-6 col-md-offset-2 col-md-5 rightnavbar" >
+    <div class="input-group col-lg-offset-2 col-lg-6 col-md-offset-2 col-md-5 rightnavbar">
       <div class="search menu configuration col-lg-8 col-md-7 ">
-        <input type="text" class="form-control input_design" placeholder="Search" [(ngModel)]="searchparam" id="srch-term">
+        <input type="text" class="form-control input_design" placeholder="Search" [(ngModel)]="searchparam"
+               id="srch-term">
         <div class="input-group-btn">
-          <button class="btn btn-default" type="submit" [routerLink]="['/search', searchparam]"><i class="glyphicon glyphicon-search"></i></button>
+          <button class="btn btn-default" type="submit" [routerLink]="['/search', searchparam]"><i
+            class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
       <div *ngIf="(!authService.isAuthenticated())" class=" col-lg-2 col-md-2">
@@ -36,12 +38,16 @@
         <a class="fa fa-2x fa-cog confButton dropdown-toggle" data-toggle="dropdown"></a>
         <span class="caret" style=" visibility: hidden;"></span>
         <ul role="menu" class="dropdown-menu">
-
           <li>
-            <div class="dropdownContext1 ">English<input type="checkbox" checked data-toggle="toggle"  data-onstyle="success" data-size="mini" class="toggle"></div>
+            <div style="text-align: center">
+              <button (click)="selectLanguage('ru');" style="padding: 0px"><img src="https://vignette4.wikia.nocookie.net/battlefield/images/d/d4/Flag_of_Russia.png/revision/latest?cb=20111126150020&path-prefix=ru"
+                           height="25" width="55"></button>
+              <button (click)="selectLanguage('en');" style="padding: 0px"><img src="http://2.bp.blogspot.com/-btFhid7OXAk/VY4nA-XOiHI/AAAAAAAAAho/MWHp8L5Xiqs/s1600/640px-Flag_of_the_United_States.svg.png"
+                                                height="25" width="55"></button>
+              </div>
           </li>
           <li>
-            <div class="dropdownContext2 theme">Dark            <input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-size="mini" class="toggle "></div>
+            <div></div>
           </li>
         </ul>
       </div>
