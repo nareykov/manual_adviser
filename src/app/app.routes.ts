@@ -7,6 +7,7 @@ import {UsersComponent} from './main/users/users.component';
 import {EditStepComponent} from './main/edit-step/edit-step.component';
 import {UserComponent} from './main/user/user.component';
 import {EditInstructionComponent} from './main/edit-instruction/edit-instruction.component';
+import {HomeComponent} from "./main/home/home.component";
 
 
 export const appRoutes: Routes = [
@@ -16,6 +17,7 @@ export const appRoutes: Routes = [
   {path: 'popular', component: PopularComponent},
   {path: 'users', component: UsersComponent},
   {path: 'editstep/:stepId', component: EditStepComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'user/:id', component: UserComponent},
   {path: 'editinstruction/:manualId', component: EditInstructionComponent},
   {path: '**', redirectTo: '/popular'}

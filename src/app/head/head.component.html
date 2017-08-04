@@ -26,8 +26,11 @@
           <button class="btn btn-default" type="submit" [routerLink]="['/search', searchparam]"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
-      <div class=" col-lg-2 col-md-2">
-        <a class="login navbar-brand" routerLink="/login/">LOGIN</a>
+      <div *ngIf="(!authService.isAuthenticated())" class=" col-lg-2 col-md-2">
+        <a class="login navbar-brand" (click)="authService.login()">LOGIN</a>
+      </div>
+      <div *ngIf="(authService.isAuthenticated())" class=" col-lg-2 col-md-2">
+        <a class="login navbar-brand" (click)="authService.logout()">LOGOUT</a>
       </div>
       <div class="dropdown col-lg-1 col-md-1">
         <a class="fa fa-2x fa-cog confButton dropdown-toggle" data-toggle="dropdown"></a>

@@ -25,6 +25,7 @@ import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 import { ManualComponent } from './main/manual/manual.component';
 import { UsersComponent } from './main/users/users.component';
 import {appRoutes} from './app.routes';
+import {HomeComponent} from './main/home/home.component';
 
 // import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -43,7 +44,8 @@ import {appRoutes} from './app.routes';
     EditInstructionComponent,
     EditStepComponent,
     ManualComponent,
-    UsersComponent
+    UsersComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
