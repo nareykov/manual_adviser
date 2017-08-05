@@ -1,20 +1,24 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ManualService} from '../../Services/manual.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {Manual} from '../../Models/manual';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 import {Step} from '../../Models/step';
+import {ManualService} from '../../Services/manual.service';
 import {StepService} from '../../Services/step.service';
+import {CommentService} from '../../Services/comment.service';
+import {Comment} from '../../Models/comment';
+import {Language} from 'angular-l10n';
 
 @Component({
   selector: 'app-manual',
   templateUrl: './manual.component.html',
   styleUrls: ['./manual.component.css'],
-  providers: [ManualService, StepService]
+  providers: [ManualService, StepService, CommentService]
 })
 export class ManualComponent implements OnInit {
 
+  @Language() lang: string;
   manualId: number;
   private subscription: Subscription;
   manual: Manual;
@@ -26,18 +30,23 @@ export class ManualComponent implements OnInit {
   stepIndex: number;
   showRightArrow = false;
   showLeftArrow = false;
-  modelContent = new Step(0, '', 0) ;
+  textAreaContent: string;
+  modelContent = new Step(0, '', 0);
   uploader: CloudinaryUploader = new CloudinaryUploader(
-    new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
+    new CloudinaryOptions({cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k'})
   );
 
-  constructor(private activateRoute: ActivatedRoute, private manualService: ManualService, private stepService: StepService) {
-    this.subscription = activateRoute.params.subscribe(params => this.manualId = params['manualId']);
+  constructor(private manualService: ManualService, private stepService: StepService, private commentService: CommentService,
+              private activateRoute: ActivatedRoute) {
+    this
+      .subscription = activateRoute.params.subscribe(params => this.manualId = params['manualId']);
     // Override onSuccessItem to retrieve the imageId
-    this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
+    this
+      .uploader
+      .onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
       const res: any = JSON.parse(response);
       this.manual.image = res.public_id;
-      return { item, response, status, headers };
+      return {item, response, status, headers};
     };
   }
 
@@ -54,6 +63,8 @@ export class ManualComponent implements OnInit {
     this.showArrows(i);
     this.modelHeader = this.manual.steps[i].name;
     this.modelContent = this.manual.steps[i];
+    this.commentService.getCommentsByStepId(i).subscribe(
+      (data) => this.modelContent.comments = data);
   }
 
   showArrows(i) {
@@ -80,5 +91,13 @@ export class ManualComponent implements OnInit {
 
   showRightStep() {
     this.showStep(++this.stepIndex);
+  }
+
+  saveComment( stepId: number) {
+    const comment = new Comment();
+    comment.text = this.textAreaContent;
+    comment.stepId = stepId;
+    // TODO: comment.userId
+    this.commentService.saveComments(comment);
   }
 }

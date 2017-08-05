@@ -61,36 +61,23 @@
         </div>
         <div class="modal-footer">
           <div class="div_comments">
-            <div class="comment_wrap">
+            <div class="comment_wrap" *ngFor="let comment of modelContent.comments">
               <div class="col-sm-1">
-                <img class="avatar img-rounded" src="https://pp.userapi.com/c637922/v637922596/6044d/Hd46w2rW76k.jpg">
+                <img class="avatar img-rounded" src="{{comment.userImage}}">
               </div>
               <div class="div_info col-sm-11">
                 <div class="minimal_height">
-                  <h6 class="date">12:23 05.03.2007</h6>
-                  <h4 class="comment_username">dwqefrefbgtrnhtmjufyi</h4>
+                  <h6 class="date">{{comment.date}}</h6>
+                  <h4 class="comment_username">{{comment.username}}</h4>
                   <p class="comment_text">
-                    Rjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goi
+                    {{comment.text}}
                   </p>
                 </div>
               </div>
             </div>
-            <div class="comment_wrap">
-              <div class="col-sm-1">
-                <img class="avatar img-rounded" src="https://pp.userapi.com/c637922/v637922596/6044d/Hd46w2rW76k.jpg">
-              </div>
-              <div class="div_info col-sm-11">
-                <div>
-                  <h6 class="date">12:23 05.03.2007</h6>
-                  <h4 class="comment_username">dwqefrefbgtrnhtmjufyi</h4>
-                  <p class="comment_text">
-                    Rjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goiRjvtynf cekjfw c ejgbrsej baeb soanrwf aerogoisegbaew fweoanfoirng ga,wm aeongoianwe ge,mw goi
-                  </p>
-                </div>
-              </div>
-            </div>
-            <textarea class="form-control" rows="2" placeholder="Leave the comment" id="comment"></textarea>
-            <button type="button" class="comment_btn btn btn-primary">Post comment</button>
+
+            <textarea class="form-control" [(ngModel)]="textAreaContent" rows="2" placeholder="Leave the comment" id="comment"></textarea>
+            <button type="button" class="comment_btn btn btn-primary" (click)="saveComment(modelContent.id)">{{ 'Send' | translate:lang }}</button>
           </div>
         </div>
       </div>

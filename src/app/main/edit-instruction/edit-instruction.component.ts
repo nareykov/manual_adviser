@@ -6,7 +6,7 @@ import {Manual} from '../../Models/manual';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 import {Step} from '../../Models/step';
 import {StepService} from '../../Services/step.service';
-import {Language} from "angular-l10n";
+import {Language} from 'angular-l10n';
 
 @Component({
   selector: 'app-edit-instruction',
@@ -80,7 +80,7 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
   }
 
   dragStep() {
-    this.setOrder()
+    this.setOrder();
     this.infoChanged();
   }
 
