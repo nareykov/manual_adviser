@@ -14,7 +14,8 @@ import {Language} from 'angular-l10n';
 })
 export class NewComponent implements OnInit {
 
-  private subscription: Subscription;
+  private userId = +localStorage.getItem('userId');
+  private userRole = localStorage.getItem('userRole');
   @Language() lang: string;
   manuals: Array<Manual> = [];
   ratings: Array<Rating> = [];

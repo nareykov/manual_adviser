@@ -6,11 +6,11 @@
 
 <div class="col-sm-8">
   <div class="header-wrap">
-    <h1>{{manual.name}}</h1>
+    <h1 class="word_break">{{manual.name}}</h1>
      <div class="tags">
       <span class="tag" *ngFor="let tag of manual.tags"  [routerLink]="['/search/', tag.name]">{{tag.name}}</span>
     </div>
-    <h5>{{manual.introduction}}</h5>
+    <h5 class="word_break">{{manual.introduction}}</h5>
   </div>
 
   <div class="row">

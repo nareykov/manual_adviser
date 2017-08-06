@@ -26,7 +26,7 @@
           <a [routerLink]="['/user/', manual.userId]" class="manualLink"><strong>{{manual.username}}</strong></a>
         </h5>
         <h5 class="overflow_div date"><span class="glyphicon glyphicon-time"></span>  {{manual.date}}</h5>
-        <i class="overflow_div">{{manual.introduction}}</i>
+        <div class="overflow_div"><i>{{manual.introduction}}</i></div>
       </div>
       <div class="likes-wrap">
         <a class="like" *ngIf="!checkEestimatedManuals(manual.id)" (click)="estimate( manual.id, 1)">
@@ -45,5 +45,4 @@
       </div>
     </div>
   </div>
-  <!--</div>-->
 </div>
