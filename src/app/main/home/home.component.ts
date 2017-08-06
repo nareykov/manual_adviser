@@ -8,6 +8,9 @@ import { Language } from 'angular-l10n';
 })
 export class HomeComponent implements OnInit {
 
+  id = localStorage.getItem('userId');
+  role = localStorage.getItem('userRole')
+
   @Language() lang: string;
   constructor() { }
 

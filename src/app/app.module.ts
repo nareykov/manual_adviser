@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {HttpModule} from '@angular/http';
+import {Http, HttpModule, RequestOptions} from '@angular/http';
 import {AppComponent} from './app.component';
 import {SideComponent} from './side/side.component';
 import {MainComponent} from './main/main.component';
@@ -27,8 +27,11 @@ import { UsersComponent } from './main/users/users.component';
 import {appRoutes} from './app.routes';
 import {HomeComponent} from './main/home/home.component';
 import { TranslationModule, LocaleService, TranslationService } from 'angular-l10n';
+import {AuthConfig, AuthHttp} from 'angular2-jwt';
 
-// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig(), http, options);
+}
 
 @NgModule({
   declarations: [
@@ -64,7 +67,13 @@ import { TranslationModule, LocaleService, TranslationService } from 'angular-l1
     TranslationModule.forRoot()
     // BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -80,3 +89,4 @@ export class AppModule {
     this.translation.init();
   }
 }
+

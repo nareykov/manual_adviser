@@ -4,11 +4,12 @@ import {Http} from '@angular/http';
 import {Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {AuthHttp} from 'angular2-jwt';
 
 @Injectable()
 export class TagCloudService {
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private authHttp: AuthHttp) {
   }
 
   getRandomColor() {
@@ -21,7 +22,7 @@ export class TagCloudService {
   }
 
   getData(): Observable<CloudData[]> {
-    return this.http.get('http://localhost:8080/tags')
+    return this.authHttp.get('http://localhost:8080/tags')
       .map((resp: Response) => {
 
         const tagsList = resp.json();

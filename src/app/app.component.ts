@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import {AuthService} from './Services/auth.service';
+import {Auth0Service} from './Services/auth0.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AuthService]
+  providers: [Auth0Service]
 })
 export class AppComponent {
   title = 'app';
 
-  constructor(private authService: AuthService) {
-    authService.handleAuthentication();
+  constructor(private auth0Service: Auth0Service) {
+    auth0Service.handleAuthentication();
   }
 }

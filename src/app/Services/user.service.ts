@@ -4,15 +4,16 @@ import {Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {User} from '../Models/user';
+import {AuthHttp} from 'angular2-jwt';
 
 @Injectable()
 export class UserService {
 
-  constructor(private http: Http) {
+  constructor(private http: Http, public authHttp: AuthHttp) {
   }
 
   getUserArray(): Observable<User[]> {
-    return this.http.get('http://localhost:8080/users/')
+    return this.authHttp.get('http://localhost:8080/users/')
       .map((resp: Response) => {
         return resp.json();
       });

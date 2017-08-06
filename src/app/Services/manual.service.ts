@@ -8,30 +8,30 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {Router} from '@angular/router';
 import {Tag} from '../Models/tag';
-
+import {AuthHttp} from 'angular2-jwt';
 
 @Injectable()
 export class ManualService {
 
-  constructor(private router: Router, private http: Http) {
+  constructor(private router: Router, private http: Http, private authHttp: AuthHttp) {
   }
 
   getManual(manualId: number): Observable<Manual> {
-    return this.http.get('http://localhost:8080/manual/' + manualId)
+    return this.authHttp.get('http://localhost:8080/manual/' + manualId)
       .map((resp: Response) => {
         return resp.json();
       });
   }
 
   searchManuals(searchparam: string, offset: number): Observable<Manual[]> {
-    return this.http.get('http://localhost:8080/manuals/' + searchparam + '/' + offset)
+    return this.authHttp.get('http://localhost:8080/manuals/' + searchparam + '/' + offset)
       .map((resp: Response) => {
         return resp.json();
       });
   }
 
   searchManualsByTag(searchparam: string, offset: number): Observable<Manual[]> {
-    return this.http.get('http://localhost:8080/manuals/bytag/' + searchparam.slice(1) + '/' + offset)
+    return this.authHttp.get('http://localhost:8080/manuals/bytag/' + searchparam.slice(1) + '/' + offset)
       .map((resp: Response) => {
         return resp.json();
       });
@@ -40,9 +40,8 @@ export class ManualService {
   newInstruction() {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({headers: headers});
-    return this.http.post('http://localhost:8080/newinstruction/', new Manual(), options)
+    return this.authHttp.post('http://localhost:8080/newinstruction/', new Manual(), options)
       .map((response: Response) => {
-        console.log(response.text());
         this.router.navigateByUrl('/editinstruction/' + response.text());
       });
   }
@@ -50,12 +49,12 @@ export class ManualService {
   postManual(manual: Manual) {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({headers: headers});
-    return this.http.post('http://localhost:8080/updatemanual/', manual, options)
+    return this.authHttp.post('http://localhost:8080/updatemanual/', manual, options)
       .subscribe();
   }
 
   getTags(): Observable<Tag[]> {
-    return this.http.get('http://localhost:8080/tags')
+    return this.authHttp.get('http://localhost:8080/tags')
       .map((resp: Response) => {
         return resp.json();
       });
@@ -68,7 +67,7 @@ export class ManualService {
   }
 
   delete(manualId: number) {
-    return this.http.get('http://localhost:8080/deletemanual/' + manualId)
+    return this.authHttp.get('http://localhost:8080/deletemanual/' + manualId)
       .subscribe();
   }
 }

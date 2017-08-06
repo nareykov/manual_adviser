@@ -6,7 +6,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand navbarBrand" rel="home" routerLink="">MANUALIZER</a>
+    <a class="navbar-brand navbarBrand" rel="home" routerLink="/home">MANUALIZER</a>
   </div>
 
   <div class="collapse navbar-collapse navbar-ex1-collapse" id="myNavbar">
@@ -28,11 +28,11 @@
             class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
-      <div *ngIf="(!authService.isAuthenticated())" class=" col-lg-2 col-md-2">
-        <a class="login navbar-brand" (click)="authService.login()">{{ 'Login' | translate:lang }}</a>
+      <div *ngIf="(!auth0Service.isAuthenticated())" class=" col-lg-2 col-md-2">
+        <a class="login navbar-brand" (click)="auth0Service.login()">{{ 'Login' | translate:lang }}</a>
       </div>
-      <div *ngIf="(authService.isAuthenticated())" class=" col-lg-2 col-md-2">
-        <a class="login navbar-brand" (click)="authService.logout()">{{ 'Logout' | translate:lang }}</a>
+      <div *ngIf="(auth0Service.isAuthenticated())" class=" col-lg-2 col-md-2">
+        <a class="login navbar-brand" (click)="auth0Service.logout()">{{ 'Logout' | translate:lang }}</a>
       </div>
       <div class="dropdown col-lg-1 col-md-1">
         <a class="fa fa-2x fa-cog confButton dropdown-toggle" data-toggle="dropdown"></a>

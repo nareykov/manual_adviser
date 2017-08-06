@@ -7,15 +7,16 @@ import {Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import {AuthHttp} from 'angular2-jwt';
 
 @Injectable()
 export class UserProfileService {
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private authHttp: AuthHttp) {
   }
 
   getUserProfile(id: number): Observable<UserProfile> {
-    return this.http.get('http://localhost:8080/users/' + id)
+    return this.authHttp.get('http://localhost:8080/users/' + id)
       .map((resp: Response) => {
         return resp.json();
       });
@@ -24,7 +25,7 @@ export class UserProfileService {
   postUserProfile(userProfile: UserProfile) {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this.http.post('http://localhost:8080/userprofile/', userProfile, options)
+    return this.authHttp.post('http://localhost:8080/userprofile/', userProfile, options)
       .subscribe();
   }
 }
