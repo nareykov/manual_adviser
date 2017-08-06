@@ -1,0 +1,104 @@
+.lesson-summary {
+  background: #FFFFFF;
+  border: 1px solid #d7d7d7;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 150px;
+  width: 430px;
+  position: relative;
+  display: inline-block;
+}
+
+.lesson-summary h2 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.lesson-summary h5 {
+  margin-top: 0px;
+  margin-bottom: 4px;
+}
+
+.lesson {
+  margin-right: 2%;
+  height: 148px;
+  width: 140px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  float: left;
+  display: table-cell;
+}
+
+.button-wrap {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.manual_content{
+  height: 150px;
+  width: 380px;
+
+}
+
+.likes-wrap {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin: 2px;
+}
+
+.like {
+  font-size:24px;
+  color: forestgreen;
+  text-decoration: none;
+}
+
+.like :hover {
+  font-size:24px;
+  color: darkgreen;
+  text-decoration: none;
+}
+
+.dislike {
+  font-size:24px;
+  color: #d9534f;
+  text-decoration: none;
+}
+
+.dislike :hover {
+  font-size:24px;
+  color: red;
+  text-decoration: none;
+}
+
+.rating_num {
+  display: inline-block;
+  margin-bottom: 0px;
+  font-size: 21px;
+}
+
+.username {
+  font-size: 12px;
+}
+
+.date {
+  font-size: 12px;
+}
+
+.tag {
+  margin-right: 2px;
+}
+
+.manualName {
+  margin-top: 3px;
+  font-size: 22px;
+}
+
+.overflow_div {
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+}

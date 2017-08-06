@@ -69,7 +69,7 @@ export class Auth0Service {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     localStorage.removeItem(AuthConfigConsts.DEFAULT_TOKEN_NAME);
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 
   public isAuthenticated(): boolean {

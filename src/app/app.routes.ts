@@ -22,5 +22,5 @@ export const appRoutes: Routes = [
   {path: 'new', component: NewComponent},
   {path: 'user/:id', component: UserComponent},
   {path: 'editinstruction/:manualId', component: EditInstructionComponent},
-  {path: '**', redirectTo: '/popular'}
+  {path: '**', redirectTo: '/home'}
 ];
