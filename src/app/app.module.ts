@@ -29,6 +29,8 @@ import {HomeComponent} from './main/home/home.component';
 import { TranslationModule, LocaleService, TranslationService } from 'angular-l10n';
 import {AuthConfig, AuthHttp} from 'angular2-jwt';
 import { NewComponent } from './main/new/new.component';
+import {EditInstructionGuard} from "./guards/edit-instruction.guard";
+import {ManualService} from "./Services/manual.service";
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -74,7 +76,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
       deps: [Http, RequestOptions]
-    }
+    },
+    EditInstructionGuard,
+    ManualService
   ],
   bootstrap: [AppComponent]
 })
