@@ -8,7 +8,7 @@
       </a>
       <div>
         <h2 [routerLink]="['/manual/', manual.id]" class="overflow_div manualName">{{manual.name}}</h2>
-        <h5 class="overflow_div username"><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}</h5>
+        <h5 class="overflow_div username"><span class="glyphicon glyphicon-time"></span> {{ 'Post by' | translate:lang }} {{manual.username}}</h5>
         <h5 class="overflow_div date"> {{manual.date}}</h5>
         <h5 class="overflow_div date"><span *ngFor="let tag of manual.tags" class="tag label label-danger">{{tag.name}}</span> </h5>
         <p class="overflow_div">{{manual.introduction}}</p>
