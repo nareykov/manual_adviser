@@ -38,7 +38,7 @@ export class UserComponent implements OnDestroy, OnInit {
     // Override onSuccessItem to retrieve the imageId
     this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
       const res: any = JSON.parse(response);
-      this.userProfile.image = this.userProfile.image = 'http://res.cloudinary.com/' + this.uploader.cloudName
+      this.userProfile.image = 'http://res.cloudinary.com/' + this.uploader.cloudName
         + '/image/upload/v1501353111/' + res.public_id + '.jpg';
       return { item, response, status, headers };
     };

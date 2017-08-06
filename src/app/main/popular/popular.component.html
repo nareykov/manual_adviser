@@ -29,17 +29,29 @@
         <p><i>Lorem ipsum dolor sit amet</i></p>
       </div>
     </div>
-    <div class="rating">
-      <div class="rating_uparrow">
-        <button class="btn btn-default button_arrow"><i class="fa fa-2x fa-long-arrow-up  button_uparrow" aria-hidden="true"></i>
-        </button>
-      </div>
+  </div>
+
+  <div class="lesson-summary" *ngFor="let manual of manuals; let i = index" infinite-scroll [infiniteScrollThrottle]="2000" (scrolled)="onScroll()">
+    <div>
+      <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn"
+         class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
+        <img class="lesson" src="{{manual.image}}">
+      </a>
       <div>
-        <h3 class="rating_num">123</h3>
+        <h2 [routerLink]="['/manual/', manual.id]" class="overflow_div manualName">{{manual.name}}</h2>
+        <h5 class="overflow_div username"><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}</h5>
+        <h5 class="overflow_div date"> {{manual.date}}</h5>
+        <h5 class="overflow_div date"><span *ngFor="let tag of manual.tags" class="tag label label-danger">{{tag.name}}</span> </h5>
+        <p class="overflow_div">{{manual.introduction}}</p>
       </div>
-      <div class="">
-        <button class="btn btn-default button_arrow "><i class="fa fa-2x fa-long-arrow-down  button_downarrow"
-                                                                             aria-hidden="true"></i></button>
+      <div class="likes-wrap">
+        <a class="like" (click)="estimate(1, manual.id, 1, i)">
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+        </a>
+        <h3 class="rating_num">{{manual.rating}}</h3>
+        <a class="dislike" (click)="estimate(1, manual.id, -1, i)">
+          <span class="glyphicon glyphicon-thumbs-down"></span>
+        </a>
       </div>
     </div>
   </div>

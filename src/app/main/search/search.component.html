@@ -34,7 +34,7 @@
     <div>
       <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn"
          class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
-        <cl-image class="lesson" [cloud-name]="uploader.cloudName" [public-id]="manual.image" width="140" height="148"></cl-image>
+        <img class="lesson" src="{{manual.image}}">
       </a>
       <div>
         <h2 [routerLink]="['/manual/', manual.id]" class="overflow_div manualName">{{manual.name}}</h2>
