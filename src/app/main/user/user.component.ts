@@ -14,7 +14,7 @@ import {RatingService} from '../../Services/rating.service';
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
-  providers: [UserProfileService, ManualService]
+  providers: [UserProfileService, ManualService, RatingService]
 })
 export class UserComponent implements OnDestroy, OnInit {
 
@@ -84,7 +84,7 @@ export class UserComponent implements OnDestroy, OnInit {
   }
 
   getRatings() {
-    this.ratingService.getRatingsByUserIdAndAuthorId(this.userProfile.id).subscribe((data) => this.ratings = data);
+    this.ratingService.getRatingsByUserId().subscribe((data) => this.ratings = data);
   }
 
   checkEestimatedManuals(manualId: number) {

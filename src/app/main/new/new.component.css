@@ -12,8 +12,8 @@
 }
 
 .lesson-summary h2 {
-  margin-bottom: 0px;
   margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .lesson-summary h5 {
@@ -74,14 +74,17 @@
   text-decoration: none;
 }
 
+.disabled{
+  font-size:24px;
+  color: gray;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
 .rating_num {
   display: inline-block;
   margin-bottom: 0px;
   font-size: 21px;
-}
-
-.username {
-  font-size: 12px;
 }
 
 .date {
@@ -90,15 +93,25 @@
 
 .tag {
   margin-right: 2px;
+  cursor: pointer;
 }
 
 .manualName {
-  margin-top: 3px;
-  font-size: 22px;
+  padding-top: 5px;
+  font-size: 24px;
 }
 
 .overflow_div {
   white-space: nowrap; /* Запрещаем перенос строк */
   overflow: hidden; /* Обрезаем все, что не помещается в область */
   text-overflow: ellipsis; /* Добавляем многоточие */
+}
+
+.manualLink {
+  text-decoration: none;
+  color: black;
+}
+
+.tag_div {
+  margin-bottom: 5px;
 }

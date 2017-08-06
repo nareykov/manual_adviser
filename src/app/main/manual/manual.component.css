@@ -108,3 +108,7 @@
 .minimal_height {
   min-width: 100px;
 }
+
+.word_break {
+  word-wrap: break-word;
+}
