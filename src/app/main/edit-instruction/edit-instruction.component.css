@@ -46,3 +46,7 @@
   text-align: center;
   margin-bottom: 7px;
 }
+
+.fr-view {
+  word-break: break-word;
+}

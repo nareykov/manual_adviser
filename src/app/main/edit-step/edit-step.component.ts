@@ -58,6 +58,7 @@ export class EditStepComponent implements OnInit {
       + '/image/upload/v1501353111/' + public_id + '.jpg', this.step.units.length);
     this.stepService.postUnit(unit).subscribe(data => unit.id = Number(data.text()));
     this.step.units.push(unit);
+    console.log(this.step.units);
   }
 
   setImageEffect(index: number, effect: string) {
