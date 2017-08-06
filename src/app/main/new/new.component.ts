@@ -56,5 +56,4 @@ export class NewComponent implements OnInit {
     this.manualService.getNewManuals(this.manuals.pop().id).subscribe((data) => this.manuals = this.manuals.concat(data));
     this.offset += 10;
   }
-
 }
