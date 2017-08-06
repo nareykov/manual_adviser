@@ -28,18 +28,17 @@
             class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
-      <div *ngIf="(!auth0Service.isAuthenticated())" class=" col-lg-2 col-md-2">
+      <div *ngIf="(!auth0Service.isAuthenticated())" class="inline_head">
         <a class="login navbar-brand" (click)="auth0Service.login()">{{ 'Login' | translate:lang }}</a>
       </div>
-      <div *ngIf="(auth0Service.isAuthenticated())" class=" col-lg-1 col-md-1">
+      <div *ngIf="(auth0Service.isAuthenticated())" class=" inline_head">
         <a class="login navbar-brand userImageButton" [routerLink]="['/user', userId]">
           <img class="userImage" src="{{userImage}}"/>
         </a>
       </div>
-      <div *ngIf="(auth0Service.isAuthenticated())" class=" col-lg-2 col-md-2">
+      <div *ngIf="(auth0Service.isAuthenticated())" class=" inline_head">
         <a class="login navbar-brand" (click)="auth0Service.logout()">{{ 'Logout' | translate:lang }}</a>
       </div>
-      <div class="dropdown col-lg-1 col-md-1">
         <a class="fa fa-2x fa-cog confButton dropdown-toggle" data-toggle="dropdown"></a>
         <span class="caret" style=" visibility: hidden;"></span>
         <ul role="menu" class="dropdown-menu">
@@ -55,7 +54,6 @@
             <div></div>
           </li>
         </ul>
-      </div>
     </div>
 
     <!--</form>-->

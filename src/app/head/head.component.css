@@ -5,7 +5,7 @@
 
 .menu{
   display: inline-block;
-
+  width: 420px;
 }
 
 .navbarBrand{
@@ -70,7 +70,6 @@
   margin-left: 20px !important;
 }
 .rightnavbar{
-  margin-left: 620px;
   margin-top: 8px;
 }
 
@@ -82,4 +81,9 @@
 
 .userImageButton{
   padding-top: 3px;
+}
+
+.inline_head {
+  display: inline-block;
+  height: 29px;
 }
