@@ -74,6 +74,13 @@
   text-decoration: none;
 }
 
+.disabled{
+  font-size:24px;
+  color: gray;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
 .rating_num {
   display: inline-block;
   margin-bottom: 0px;
@@ -103,5 +110,9 @@
   text-overflow: ellipsis; /* Добавляем многоточие */
 }
 
+.manualLink {
+  text-decoration: none;
+  color: black;
+}
 
 

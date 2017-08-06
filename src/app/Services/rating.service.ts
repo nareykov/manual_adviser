@@ -21,4 +21,10 @@ export class RatingService {
     return this.authHttp.post('http://localhost:8080/setRating/', rating, options)
       .subscribe();
   }
+
+  getRatingsByUserId(): Observable<Array<Rating>> {
+  return this.authHttp.get('http://localhost:8080/getRatingsByUserId/' + localStorage.getItem('userId')).map((resp: Response) => {
+      return resp.json();
+    });
+  }
 }
