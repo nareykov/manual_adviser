@@ -12,7 +12,7 @@ import {AuthHttp} from 'angular2-jwt';
 @Injectable()
 export class UserProfileService {
 
-  constructor(private http: Http, private authHttp: AuthHttp) {
+  constructor(private authHttp: AuthHttp) {
   }
 
   getUserProfile(id: number): Observable<UserProfile> {

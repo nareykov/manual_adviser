@@ -1,18 +1,24 @@
 <div class="header">
 
   <img class="avatar img-rounded" src={{userProfile.image}}>
-  <div class="fullname-wrap">
+  <div class="fullname-wrap" *ngIf="userId == id || userRole === 'ROLE_ADMIN'">
     <h1 #usernameTag contenteditable="true" (blur)="infoChanged()">{{userProfile.username}}</h1>
   </div>
-  <div class="inf">
+  <div class="fullname-wrap" *ngIf="!(userId == id || userRole === 'ROLE_ADMIN')">
+    <h1 #usernameTag>{{userProfile.username}}</h1>
+  </div>
+  <div class="inf" *ngIf="(userId == id || userRole === 'ROLE_ADMIN')">
     <p>{{ 'Country' | translate:lang }}: <font #originTag contenteditable="true" (blur)="infoChanged()">{{userProfile.origin}}</font></p>
-    <p>{{ 'Register' | translate:lang }}: 12.34.2345</p>
-    <p>{{ 'Last Activity' | translate:lang }}: {{userProfile.date}}</p>
+    <p>{{ 'Register' | translate:lang }}: {{userProfile.date}}</p>
+  </div>
+  <div class="inf" *ngIf="!(userId == id || userRole === 'ROLE_ADMIN')">
+    <p>{{ 'Country' | translate:lang }}: <font #originTag>{{userProfile.origin}}</font></p>
+    <p>{{ 'Register' | translate:lang }}: {{userProfile.date}}</p>
   </div>
 
 </div>
 
-<div class="photobtn">
+<div class="photobtn" *ngIf="userId == id || userRole === 'ROLE_ADMIN'">
   <label title="Add photo" class="button_change_photo btn btn-primary btn-lg">
     <span class="glyphicon glyphicon-picture " style="color:aliceblue"></span>
     {{ 'Change Photo' | translate:lang }}
@@ -30,11 +36,15 @@
 <hr>
 
 <div class="lesson-summary" *ngFor="let manual of userProfile.manualDTOS; let i = index">
-  <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn" class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
+  <a [routerLink]="['/editinstruction/', manual.id]" title="{{manual.name}}" *ngIf="userId == id || userRole === 'ROLE_ADMIN'" class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
+    <img class="lesson" src="{{manual.image}}">
+  </a>
+  <a [routerLink]="['/manual/', manual.id]" title="{{manual.name}}" *ngIf="!(userId == id || userRole === 'ROLE_ADMIN')" class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
     <img class="lesson" src="{{manual.image}}">
   </a>
   <div>
-    <h2 [routerLink]="['/editinstruction/', manual.id]" class="overflow_div manualName">{{manual.name}}</h2>
+    <h2 [routerLink]="['/editinstruction/', manual.id]" class="overflow_div manualName" *ngIf="userId == id || userRole === 'ROLE_ADMIN'">{{manual.name}}</h2>
+    <h2 [routerLink]="['/manual/', manual.id]" class="overflow_div manualName" *ngIf="!(userId == id || userRole === 'ROLE_ADMIN')">{{manual.name}}</h2>
     <h5 class="overflow_div username"><span class="glyphicon glyphicon-time"></span>  {{ 'Post By' | translate:lang }} {{manual.username}}, {{manual.date}}.</h5>
     <h5 class="overflow_div date"><span *ngFor="let tag of manual.tags" class="tag label label-danger">{{tag.name}}</span> </h5>
     <p class="overflow_div">{{manual.introduction}}</p>
@@ -49,9 +59,9 @@
     </a>
   </div>
 
-  <span class="elem-delete" (click)="deleteManual(i)"><i class="fa fa-times" aria-hidden="true"></i></span>
+  <span class="elem-delete" (click)="deleteManual(i)" *ngIf="userId == id || userRole === 'ROLE_ADMIN'"><i class="fa fa-times" aria-hidden="true"></i></span>
 </div>
 
-<div class="newButtonDiv">
+<div class="newButtonDiv" *ngIf="userId == id || userRole === 'ROLE_ADMIN'">
   <button type="button" class="btn btn-primary" (click)="newInstruction()">+ {{ 'New Instruction' | translate:lang }}</button>
 </div>

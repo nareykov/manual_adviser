@@ -28,6 +28,7 @@ import {appRoutes} from './app.routes';
 import {HomeComponent} from './main/home/home.component';
 import { TranslationModule, LocaleService, TranslationService } from 'angular-l10n';
 import {AuthConfig, AuthHttp} from 'angular2-jwt';
+import { NewComponent } from './main/new/new.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -49,7 +50,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     EditStepComponent,
     ManualComponent,
     UsersComponent,
-    HomeComponent
+    HomeComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import {AuthHttp} from 'angular2-jwt';
 @Injectable()
 export class UserService {
 
-  constructor(private http: Http, public authHttp: AuthHttp) {
+  constructor( public authHttp: AuthHttp) {
   }
 
   getUserArray(): Observable<User[]> {

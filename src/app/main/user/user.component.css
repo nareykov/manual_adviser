@@ -97,6 +97,7 @@
   font-size: initial;
   margin-left: 20px;
   margin-top: 10px;
+  margin-bottom: 33px;
 }
 
 .fullname-wrap {
@@ -202,6 +203,7 @@
 
 .button_change_photo {
   font-size: 15px;
+  width: 160px;
 }
 
 

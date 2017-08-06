@@ -18,8 +18,10 @@ export class UserComponent implements OnDestroy, OnInit {
 
   @Language() lang: string;
   private id: number;
+  private userId = +localStorage.getItem('userId');
+  private userRole = localStorage.getItem('userRole');
   private subscription: Subscription;
-  userProfile: UserProfile;
+  userProfile: UserProfile = new UserProfile;
   private instructionId: number;
   @ViewChild('usernameTag')
   usernameTag: any;

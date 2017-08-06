@@ -1,7 +1,7 @@
 <div class="search-result">
 
   <div *ngFor="let user of users;" class="user-div">
-    <a href="/lesson/Tools-and-Supplies-1/" title="title">
+    <a [routerLink]="['/user', user.id]" title="{{user.username}}">
       <img class="user-img" src="{{user.image}}">
     </a>
     <div>
