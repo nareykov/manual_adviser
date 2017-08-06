@@ -21,15 +21,15 @@ export class SearchComponent implements OnInit {
   private subscription: Subscription;
   @Language() lang: string;
   manuals: Array<Manual> = [];
-  estimatedManualIds: Array<number> = [];
+  ratings: Array<Rating> = [];
   offset = 10;
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
-    new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
+    new CloudinaryOptions({cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k'})
   );
 
-  constructor( private activateRoute: ActivatedRoute, private manualService: ManualService,
-               private ratingService: RatingService, private router: Router) {
+  constructor(private activateRoute: ActivatedRoute, private manualService: ManualService,
+              private ratingService: RatingService, private router: Router) {
     router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
           this.getManuals();
@@ -41,6 +41,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.getManuals();
+    this.getRatings();
   }
 
   getManuals() {
@@ -51,14 +52,23 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  checkEestimatedManuals(manualId: number) {
-    return this.estimatedManualIds.indexOf(manualId) > -1;
+  getRatings() {
+    this.ratingService.getRatingsByUserId().subscribe((data) => this.ratings = data);
   }
 
-  estimate(userId: number, manualId: number, value: number) {
-    this.ratingService.saveRating(new Rating(userId, manualId, value));
+  checkEestimatedManuals(manualId: number) {
+    for (const rating of this.ratings) {
+      if (rating.manual === manualId) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  estimate(manualId: number, value: number) {
     this.manuals.find(m => m.id === manualId).rating += value;
-    this.estimatedManualIds.push(manualId);
+    this.ratingService.saveRating(new Rating(+localStorage.getItem('userId'), manualId, value));
+    this.ratings.push(new Rating(+localStorage.getItem('userId'), manualId, value));
   }
 
   onScroll() {
