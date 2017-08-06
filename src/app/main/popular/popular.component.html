@@ -1,35 +1,6 @@
 <h1>Most popular manuals</h1>
-
-<div class="filter-item">
-  <h4>Category:</h4>
-  <select class="form-control">
-    <option>Category 1</option>
-    <option>Category 2</option>
-    <option>Category 3</option>
-    <option>Category 4</option>
-  </select>
-</div>
-
+<br>
 <div class="search-result">
-
-
-  <div class="lesson-summary"> <!--*ngFor="let manual of manuals">-->
-    <div class="manual_content">
-      <a href="/lesson/Tools-and-Supplies-1/" title="What You'll Need &amp; Learn"
-         class="lesson-thumbnail login-required" data-sourcea="class:viewLesson">
-        <img class="lesson" src="https://cdn.instructables.com/FXG/AGTM/J4OFUV9X/FXGAGTMJ4OFUV9X.SMALL.jpg">
-      </a>
-      <div>
-        <h2>Officially</h2>
-        <!--*ngFor="let tag of manual.tagNames" class="label label-danger">-->
-        <h5 class="label label-danger"><span> Lorem</span></h5>
-        <h5 class="posted"> Posted by <b>John Doe</b></h5>
-        <h5><span class="glyphicon glyphicon-time"></span> Sep 24, 2015</h5>
-
-        <p><i>Lorem ipsum dolor sit amet</i></p>
-      </div>
-    </div>
-  </div>
 
   <div class="lesson-summary" *ngFor="let manual of manuals; let i = index">
     <div>
@@ -42,11 +13,20 @@
         <img class="lesson" src="{{manual.image}}">
       </a>
       <div>
-        <a [routerLink]="['/manual/', manual.id]" class="manualLink"><h2  class="overflow_div manualName">{{manual.name}}</h2></a>
-        <h5 class="overflow_div username"><span class="glyphicon glyphicon-time"></span> Post by {{manual.username}}</h5>
-        <h5 class="overflow_div date"> {{manual.date}}</h5>
-        <h5 class="overflow_div date"><span *ngFor="let tag of manual.tags" class="tag label label-danger">{{tag.name}}</span> </h5>
-        <p class="overflow_div">{{manual.introduction}}</p>
+        <a [routerLink]="['/editinstruction/', manual.id]" class="manualLink" *ngIf="(userId == manual.userId || userRole === 'ROLE_ADMIN')">
+          <h2  class="overflow_div manualName">{{manual.name}}</h2>
+        </a>
+        <a [routerLink]="['/manual/', manual.id]" class="manualLink" *ngIf="!(userId == manual.userId || userRole === 'ROLE_ADMIN')">
+          <h2  class="overflow_div manualName">{{manual.name}}</h2>
+        </a>
+        <div class="overflow_div tag_div">
+          <span *ngFor="let tag of manual.tags" class="tag label label-danger" [routerLink]="['/search', '@' + tag.name]">{{tag.name}}</span>
+        </div>
+        <h5 class="overflow_div username">Post by
+          <a [routerLink]="['/user/', manual.userId]" class="manualLink"><strong>{{manual.username}}</strong></a>
+        </h5>
+        <h5 class="overflow_div date"><span class="glyphicon glyphicon-time"></span>  {{manual.date}}</h5>
+        <i class="overflow_div">{{manual.introduction}}</i>
       </div>
       <div class="likes-wrap">
         <a class="like" *ngIf="!checkEestimatedManuals(manual.id)" (click)="estimate( manual.id, 1)">

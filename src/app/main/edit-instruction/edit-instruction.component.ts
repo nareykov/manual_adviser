@@ -65,7 +65,7 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
   addTag(tag) {
     tag.id = 0;
     this.manualService.postTag(tag).subscribe(data => tag.id = Number(data.text()));
-    this.infoChanged();
+    //this.infoChanged();
   }
 
   addStep() {

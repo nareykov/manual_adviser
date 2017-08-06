@@ -13,7 +13,7 @@ import {AuthHttp} from 'angular2-jwt';
 @Injectable()
 export class ManualService {
 
-  constructor(private router: Router, private http: Http, private authHttp: AuthHttp) {
+  constructor(private router: Router, private authHttp: AuthHttp) {
   }
 
   getManual(manualId: number): Observable<Manual> {
@@ -77,7 +77,7 @@ export class ManualService {
   postTag(tag: Tag) {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({headers: headers});
-    return this.http.post('http://localhost:8080/addtag', tag, options);
+    return this.authHttp.post('http://localhost:8080/addtag', tag, options);
   }
 
   delete(manualId: number) {
