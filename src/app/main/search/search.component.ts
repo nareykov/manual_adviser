@@ -28,8 +28,8 @@ export class SearchComponent implements OnInit {
     new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
   );
 
-  constructor( private activateRoute: ActivatedRoute, private userService: UserService,
-              private manualService: ManualService, private ratingService: RatingService, private router: Router) {
+  constructor( private activateRoute: ActivatedRoute, private manualService: ManualService,
+               private ratingService: RatingService, private router: Router) {
     router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
           this.getManuals();

@@ -30,6 +30,13 @@ export class ManualService {
       });
   }
 
+  getPopularManuals(): Observable<Manual[]> {
+    return this.authHttp.get('http://localhost:8080/popularManuals/')
+      .map((resp: Response) => {
+        return resp.json();
+      });
+  }
+
   searchManualsByTag(searchparam: string, offset: number): Observable<Manual[]> {
     return this.authHttp.get('http://localhost:8080/manuals/bytag/' + searchparam.slice(1) + '/' + offset)
       .map((resp: Response) => {
