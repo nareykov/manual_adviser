@@ -10,10 +10,15 @@ import {LocaleService, Language} from 'angular-l10n';
 })
 export class HeadComponent {
   searchparam: string;
+  userImage: string;
+  userId: string;
   @Language() lang: string;
 
   constructor(private auth0Service: Auth0Service, public locale: LocaleService) {
+    this.userImage = localStorage.getItem('userImage');
+    this.userId = localStorage.getItem('userId');
   }
+
   selectLanguage(language: string): void {
     this.locale.setCurrentLanguage(language);
   }

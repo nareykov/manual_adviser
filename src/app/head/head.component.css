@@ -73,3 +73,13 @@
   margin-left: 620px;
   margin-top: 8px;
 }
+
+.userImage{
+  width:30px;
+  height:30px;
+  border-radius:100%;
+}
+
+.userImageButton{
+  padding-top: 3px;
+}
