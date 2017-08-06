@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Rating} from '../Models/rating';
 import {Http, RequestOptions} from '@angular/http';
 import {Response, Headers} from '@angular/http';
@@ -15,15 +15,22 @@ export class RatingService {
 
 
   saveRating(rating: Rating) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Access-Control-Allow-Origin', 'http://localhost:8080');
-    const options = new RequestOptions({ headers: headers });
+    const options = new RequestOptions({headers: headers});
     return this.authHttp.post('http://localhost:8080/setRating/', rating, options)
       .subscribe();
   }
 
   getRatingsByUserId(): Observable<Array<Rating>> {
-  return this.authHttp.get('http://localhost:8080/getRatingsByUserId/' + localStorage.getItem('userId')).map((resp: Response) => {
+    return this.authHttp.get('http://localhost:8080/getRatingsByUserId/' + localStorage.getItem('userId')).map((resp: Response) => {
+      return resp.json();
+    });
+  }
+
+  getRatingsByUserIdAndAuthorId(authorId: number): Observable<Array<Rating>> {
+    return this.authHttp.get('http://localhost:8080/getRatingsByUserIdAndAuthorId/' + localStorage.getItem('userId') + '/' +
+      authorId).map((resp: Response) => {
       return resp.json();
     });
   }

@@ -6,6 +6,8 @@ import {UserProfile} from '../../Models/user-profile';
 import {ManualService} from '../../Services/manual.service';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 import {Language, LocaleService} from 'angular-l10n';
+import {Rating} from '../../Models/rating';
+import {RatingService} from '../../Services/rating.service';
 
 
 @Component ({
@@ -28,13 +30,14 @@ export class UserComponent implements OnDestroy, OnInit {
   @ViewChild('originTag')
   originTag: any;
   router: Router;
+  ratings: Array<Rating>;
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
   );
 
   constructor( private activateRoute: ActivatedRoute, private userProfileService: UserProfileService,
-              private manualService: ManualService, router: Router) {
+              private manualService: ManualService, private ratingService: RatingService, router: Router) {
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
     this.router = router;
     // Override onSuccessItem to retrieve the imageId
@@ -58,6 +61,7 @@ export class UserComponent implements OnDestroy, OnInit {
 
   ngOnInit(): void {
     this.getUserProfile();
+    this.getRatings();
   }
 
   getUserProfile() {
@@ -77,5 +81,24 @@ export class UserComponent implements OnDestroy, OnInit {
   deleteManual(i) {
     this.manualService.delete(this.userProfile.manualDTOS[i].id);
     this.userProfile.manualDTOS.splice(i, 1);
+  }
+
+  getRatings() {
+    this.ratingService.getRatingsByUserIdAndAuthorId(this.userProfile.id).subscribe((data) => this.ratings = data);
+  }
+
+  checkEestimatedManuals(manualId: number) {
+    for (const rating of this.ratings) {
+      if (rating.manual === manualId) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  estimate(manualId: number, value: number) {
+    this.userProfile.manualDTOS.find(m => m.id === manualId).rating += value;
+    this.ratingService.saveRating(new Rating(+localStorage.getItem('userId'), manualId, value));
+    this.ratings.push(new Rating(+localStorage.getItem('userId'), manualId, value));
   }
 }

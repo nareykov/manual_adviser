@@ -50,11 +50,17 @@
     <p class="overflow_div">{{manual.introduction}}</p>
   </div>
   <div class="likes-wrap">
-    <a class="like">
+    <a class="like" *ngIf="!checkEestimatedManuals(manual.id)" (click)="estimate( manual.id, 1)">
+      <span class="glyphicon glyphicon-thumbs-up"></span>
+    </a>
+    <a class="disabled" *ngIf="checkEestimatedManuals(manual.id)">
       <span class="glyphicon glyphicon-thumbs-up"></span>
     </a>
     <h3 class="rating_num">{{manual.rating}}</h3>
-    <a class="dislike">
+    <a class="dislike" *ngIf="!checkEestimatedManuals(manual.id)" (click)="estimate( manual.id, -1)">
+      <span class="glyphicon glyphicon-thumbs-down"></span>
+    </a>
+    <a class="disabled" *ngIf="checkEestimatedManuals(manual.id)" >
       <span class="glyphicon glyphicon-thumbs-down"></span>
     </a>
   </div>

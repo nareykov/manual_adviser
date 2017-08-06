@@ -18,7 +18,6 @@ export class PopularComponent implements OnInit {
   private userRole = localStorage.getItem('userRole');
   @Language() lang: string;
   manuals: Array<Manual> = [];
-  estimatedManualIds: Array<number> = [];
   ratings: Array<Rating> = [];
 
   constructor(private manualService: ManualService, private ratingService: RatingService) {
