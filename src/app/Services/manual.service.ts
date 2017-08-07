@@ -13,7 +13,7 @@ import {AuthHttp} from 'angular2-jwt';
 @Injectable()
 export class ManualService {
 
-  constructor(private router: Router, private authHttp: AuthHttp) {
+  constructor(private router: Router, private authHttp: AuthHttp, private http: Http) {
   }
 
   getManual(manualId: number): Observable<Manual> {
@@ -38,7 +38,7 @@ export class ManualService {
   }
 
   getPopularManuals(): Observable<Manual[]> {
-    return this.authHttp.get('http://localhost:8080/popularManuals/')
+    return this.http.get('http://localhost:8080/popularManuals/')
       .map((resp: Response) => {
         return resp.json();
       });
@@ -52,18 +52,14 @@ export class ManualService {
   }
 
   newInstruction() {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
-    return this.authHttp.post('http://localhost:8080/newinstruction/', new Manual(), options)
+    return this.authHttp.post('http://localhost:8080/newinstruction/', new Manual())
       .map((response: Response) => {
         this.router.navigateByUrl('/editinstruction/' + response.text());
       });
   }
 
   postManual(manual: Manual) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
-    return this.authHttp.post('http://localhost:8080/updatemanual/', manual, options)
+    return this.authHttp.post('http://localhost:8080/updatemanual/', manual)
       .subscribe();
   }
 
@@ -75,9 +71,7 @@ export class ManualService {
   }
 
   postTag(tag: Tag) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
-    return this.authHttp.post('http://localhost:8080/addtag', tag, options);
+    return this.authHttp.post('http://localhost:8080/addtag', tag);
   }
 
   delete(manualId: number) {

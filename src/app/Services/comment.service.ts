@@ -6,37 +6,32 @@ import {Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {Comment} from '../Models/comment';
+import {AuthHttp} from "angular2-jwt";
 
 
 @Injectable()
 export class CommentService {
 
-  constructor(private http: Http) {
+  constructor(private authHttp: AuthHttp) {
   }
 
-  getCommentsByStepId(stepId: number): Observable<Array<Comment>> {
-    return this.http.get('http://localhost:8080/getCommentsByStepId/' + stepId)
+  getCommentsByStepId(stepId: number): Observable<Comment[]> {
+    return this.authHttp.get('http://localhost:8080/getCommentsByStepId/' + stepId)
       .map((resp: Response) => {
         return resp.json();
       });
   }
 
   deleteCommentsById(id: number) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
-    this.http.post('http://localhost:8080/deleteCommentById', id, options);
+    this.authHttp.post('http://localhost:8080/deleteCommentById', id);
   }
 
   saveComments(commentDTO: Comment) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
-    this.http.post('http://localhost:8080/saveComment', commentDTO, options);
+    return this.authHttp.post('http://localhost:8080/saveComment', commentDTO);
   }
 
   deleteCommentsByStepId(stepId: number) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
-    this.http.post('http://localhost:8080/deleteCommentsByStepId', stepId, options);
+    this.authHttp.post('http://localhost:8080/deleteCommentsByStepId', stepId);
   }
 
 }

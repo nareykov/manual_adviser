@@ -9,7 +9,7 @@ import {AuthHttp} from 'angular2-jwt';
 @Injectable()
 export class StepService {
 
-  constructor(private http: Http, private authHttp: AuthHttp) {
+  constructor(private authHttp: AuthHttp) {
   }
 
   getStep(stepId: number): Observable<Step> {
@@ -30,22 +30,15 @@ export class StepService {
   }
 
   postStep(step: Step) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
-    return this.authHttp.post('http://localhost:8080/addStep', step, options);
+    return this.authHttp.post('http://localhost:8080/addStep', step);
   }
 
   updateStep(step: Step) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
-    return this.authHttp.post('http://localhost:8080/updatestep/', step, options)
+    return this.authHttp.post('http://localhost:8080/updatestep/', step)
       .subscribe();
   }
 
   postUnit(unit: Unit) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
-    return this.authHttp.post('http://localhost:8080/addUnit', unit, options);
+    return this.authHttp.post('http://localhost:8080/addUnit', unit);
   }
-
 }

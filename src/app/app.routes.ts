@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import {LoginComponent} from './main/login/login.component';
 import {SearchComponent} from './main/search/search.component';
 import {ManualComponent} from './main/manual/manual.component';
 import {PopularComponent} from './main/popular/popular.component';
@@ -13,7 +12,6 @@ import {EditInstructionGuard} from './guards/edit-instruction.guard';
 
 
 export const appRoutes: Routes = [
-  {path: 'login', component: LoginComponent},
   {path: 'search/:searchparam', component: SearchComponent},
   {path: 'manual/:manualId', component: ManualComponent},
   {path: 'popular', component: PopularComponent},

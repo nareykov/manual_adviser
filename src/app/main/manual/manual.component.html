@@ -72,13 +72,16 @@
                   <p class="comment_text">
                     {{comment.text}}
                   </p>
+                  <br>
                 </div>
               </div>
             </div>
 
-            <textarea class="form-control" [(ngModel)]="textAreaContent" rows="2" placeholder="Leave the comment" id="comment"></textarea>
-            <button type="button" class="comment_btn btn btn-primary" (click)="saveComment(modelContent.id)">{{ 'Send' | translate:lang }}</button>
-          </div>
+            <div *ngIf="( userRole === 'ROLE_USER' || userRole === 'ROLE_ADMIN')">
+              <textarea class="form-control" [(ngModel)]="textAreaContent" rows="2" placeholder="Leave the comment" id="comment"></textarea>
+              <button type="button" class="comment_btn btn btn-primary" (click)="saveComment(modelContent.id)">{{ 'Send' | translate:lang }}</button>
+            </div>
+            </div>
         </div>
       </div>
 

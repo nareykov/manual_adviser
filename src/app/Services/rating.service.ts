@@ -15,10 +15,7 @@ export class RatingService {
 
 
   saveRating(rating: Rating) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Access-Control-Allow-Origin', 'http://localhost:8080');
-    const options = new RequestOptions({headers: headers});
-    return this.authHttp.post('http://localhost:8080/setRating/', rating, options)
+    return this.authHttp.post('http://localhost:8080/setRating/', rating)
       .subscribe();
   }
 

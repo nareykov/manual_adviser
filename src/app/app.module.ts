@@ -10,7 +10,6 @@ import {TagcloudComponent} from './side/tagcloud/tagcloud.component';
 import {TagCloudModule} from 'angular-tag-cloud-module';
 import {SearchComponent} from './main/search/search.component';
 import {PopularComponent} from './main/popular/popular.component';
-import {LoginComponent} from './main/login/login.component';
 import { UserComponent } from './main/user/user.component';
 import {FormsModule} from '@angular/forms';
 import { EditInstructionComponent } from './main/edit-instruction/edit-instruction.component';
@@ -29,11 +28,14 @@ import {HomeComponent} from './main/home/home.component';
 import { TranslationModule, LocaleService, TranslationService } from 'angular-l10n';
 import {AuthConfig, AuthHttp} from 'angular2-jwt';
 import { NewComponent } from './main/new/new.component';
-import {EditInstructionGuard} from "./guards/edit-instruction.guard";
-import {ManualService} from "./Services/manual.service";
+import {EditInstructionGuard} from './guards/edit-instruction.guard';
+import {ManualService} from './Services/manual.service';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig(), http, options);
+  return new AuthHttp(new AuthConfig({
+    globalHeaders: [{'Content-Type': 'application/json'}],
+    noJwtError: true
+  }), http, options);
 }
 
 @NgModule({
@@ -44,7 +46,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     HeadComponent,
     SearchComponent,
     PopularComponent,
-    LoginComponent,
     TagcloudComponent,
     SavePipe,
     UserComponent,

@@ -30,7 +30,8 @@ export class ManualComponent implements OnInit {
   stepIndex: number;
   showRightArrow = false;
   showLeftArrow = false;
-  textAreaContent: string;
+  private userRole = localStorage.getItem('userRole');
+  textAreaContent = '';
   modelContent = new Step(0, '', 0);
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k'})
@@ -59,12 +60,14 @@ export class ManualComponent implements OnInit {
   }
 
   showStep(i) {
+    this.textAreaContent = '';
     this.stepIndex = i;
     this.showArrows(i);
     this.modelHeader = this.manual.steps[i].name;
     this.modelContent = this.manual.steps[i];
-    this.commentService.getCommentsByStepId(i).subscribe(
+    this.commentService.getCommentsByStepId(this.manual.steps[i].id).subscribe(
       (data) => this.modelContent.comments = data);
+    console.log(this.modelContent.comments);
   }
 
   showArrows(i) {
@@ -97,7 +100,11 @@ export class ManualComponent implements OnInit {
     const comment = new Comment();
     comment.text = this.textAreaContent;
     comment.stepId = stepId;
-    // TODO: comment.userId
-    this.commentService.saveComments(comment);
+    comment.userImage = localStorage.getItem('userImage');
+    comment.userId = +localStorage.getItem('userId');
+    comment.username = localStorage.getItem('userName');
+    this.commentService.saveComments(comment).subscribe(data => comment.id = Number(data.text()));
+    this.manual.steps.filter(step => step.id === stepId).pop().comments.push(comment);
+    this.textAreaContent = '';
   }
 }

@@ -112,3 +112,15 @@
 .word_break {
   word-wrap: break-word;
 }
+
+.fr-view {
+  word-break: break-word;
+}
+
+.modal-title {
+  word-wrap: break-word;
+}
+
+.form-control {
+  resize: none;
+}

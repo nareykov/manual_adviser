@@ -23,9 +23,7 @@ export class UserProfileService {
   }
 
   postUserProfile(userProfile: UserProfile) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
-    return this.authHttp.post('http://localhost:8080/userprofile/', userProfile, options)
+    return this.authHttp.post('http://localhost:8080/userprofile/', userProfile)
       .subscribe();
   }
 }

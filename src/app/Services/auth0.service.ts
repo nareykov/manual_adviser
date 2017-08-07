@@ -68,6 +68,10 @@ export class Auth0Service {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userImage');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userRole');
     localStorage.removeItem(AuthConfigConsts.DEFAULT_TOKEN_NAME);
     this.router.navigate(['/home']);
   }
