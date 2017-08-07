@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
   manuals: Array<Manual> = [];
   ratings: Array<Rating> = [];
   offset = 10;
+  private userRole = localStorage.getItem('userRole');
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k'})
@@ -57,6 +58,9 @@ export class SearchComponent implements OnInit {
   }
 
   checkEestimatedManuals(manualId: number) {
+    if (this.userRole !== 'ROLE_USER' && this.userRole !== 'ROLE_ADMIN') {
+      return true;
+    }
     for (const rating of this.ratings) {
       if (rating.manual === manualId) {
         return true;

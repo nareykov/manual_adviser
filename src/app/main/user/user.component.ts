@@ -88,6 +88,9 @@ export class UserComponent implements OnDestroy, OnInit {
   }
 
   checkEestimatedManuals(manualId: number) {
+    if (this.userRole !== 'ROLE_USER' && this.userRole !== 'ROLE_ADMIN') {
+      return true;
+    }
     for (const rating of this.ratings) {
       if (rating.manual === manualId) {
         return true;

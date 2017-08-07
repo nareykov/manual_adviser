@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 import {Language} from 'angular-l10n';
 import {Manual} from '../../Models/manual';
@@ -37,6 +37,9 @@ export class PopularComponent implements OnInit {
   }
 
   checkEestimatedManuals(manualId: number) {
+    if (this.userRole !== 'ROLE_USER' && this.userRole !== 'ROLE_ADMIN') {
+      return true;
+    }
     for (const rating of this.ratings) {
       if (rating.manual === manualId) {
         return true;
