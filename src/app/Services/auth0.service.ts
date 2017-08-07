@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {AuthConfigConsts, AuthHttp} from 'angular2-jwt';
 import {Router} from '@angular/router';
@@ -40,7 +40,6 @@ export class Auth0Service {
       localStorage.setItem('userImage', user.image);
       localStorage.setItem('userName', user.username);
     });
-    this.location.go('/');
   }
 
   public handleAuthentication(): void {
@@ -48,9 +47,9 @@ export class Auth0Service {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.setSession(authResult);
-        this.router.navigate(['/home']);
+        // this.router.navigate(['/home']);
       } else if (err) {
-        this.router.navigate(['/home']);
+        // this.router.navigate(['/home']);
         console.log(err);
       }
     });

@@ -12,8 +12,8 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse" id="myNavbar">
 
     <ul class="nav navbar-nav">
-      <li><a routerLink="/users">{{ 'Users' | translate:lang }}</a></li>
-      <li><a routerLink="/new">{{ 'New' | translate:lang }}</a></li>
+      <li><a [routerLink]="['/users']">{{ 'Users' | translate:lang }}</a></li>
+      <li><a [routerLink]="['/new']">{{ 'New' | translate:lang }}</a></li>
       <li><a routerLink="/popular">{{ 'Popular' | translate:lang }}</a></li>
     </ul>
 

@@ -1,4 +1,4 @@
-.header{
+.header {
   text-align: center;
 }
 
@@ -6,17 +6,18 @@
   font-size: 30px;
   display: inline-block;
 }
-.buttonDiv{
+
+.buttonDiv {
 
   text-align: center;
 }
 
-.buttonSpan{
+.buttonSpan {
 
 }
 
-.input_url-line{
-  width:100%;
+.input_url-line {
+  width: 100%;
 }
 
 .elem-delete {
@@ -30,7 +31,7 @@
   transition: all 0.9s;
 }
 
-.elem-delete:hover{
+.elem-delete:hover {
   background-color: darkred;
   color: #FFFFFF;
 }
@@ -73,10 +74,15 @@
   color: orange;
 }
 
-.sun :hover{
+.sun :hover {
   color: chocolate;
 }
 
 .word_wrap {
   word-wrap: break-word;
+}
+
+.imageContent {
+  height: 315px;
+  width: 500px;
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, HostListener} from '@angular/core';
 import {Auth0Service} from './Services/auth0.service';
 
 @Component({
@@ -9,8 +9,20 @@ import {Auth0Service} from './Services/auth0.service';
 })
 export class AppComponent {
   title = 'app';
+  b = false;
+
+  authEvent: EventEmitter<string> = new EventEmitter();
 
   constructor(private auth0Service: Auth0Service) {
     auth0Service.handleAuthentication();
+    this.b = false;
+  }
+
+  @HostListener('mousemove', ['$event'])
+  onMousemove(event: MouseEvent) {
+    if (!this.b) {
+      this.authEvent.emit('sosi');
+      this.b = true;
+    }
   }
 }
