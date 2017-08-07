@@ -4,16 +4,12 @@
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
   </ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
-      <img [routerLink]="['/search', 'Science']" src="http://res.cloudinary.com/diwv72pih/image/upload/w_930,h_500/v1502055379/bb04c725fd38646a0dbb7b90b3fab037_kkypnh.jpg" alt="Los Angeles">
-      <div class="carousel-caption">
-        <h3>Science</h3>
-        <p>Create gadget you dream of!</p>
-      </div>
-    </div>
+
 
     <div class="item">
       <img [routerLink]="['/search', 'HandMade']" src="http://res.cloudinary.com/diwv72pih/image/upload/w_930,h_500/v1502053500/1_rgz37s.jpg" alt="HandMade">
@@ -23,11 +19,35 @@
       </div>
     </div>
 
+    <div class="item active">
+      <img [routerLink]="['/search', 'Science']" src="http://res.cloudinary.com/diwv72pih/image/upload/w_930,h_500/v1502055379/bb04c725fd38646a0dbb7b90b3fab037_kkypnh.jpg" alt="Los Angeles">
+      <div class="carousel-caption">
+        <h3>Science</h3>
+        <p>Create gadget you dream of!</p>
+      </div>
+    </div>
+
     <div class="item">
-      <img [routerLink]="['/search', 'Sweets']" src="http://res.cloudinary.com/diwv72pih/image/upload/w_930,h_500/v1502054156/635862250218546205-1016468179_Chocolate-Chip-Cookies_wlyrzm.jpg" alt="New York">
+      <img [routerLink]="['/search', 'Sweets']" src="http://res.cloudinary.com/diwv72pih/image/upload/w_930,h_500/v1502054156/635862250218546205-1016468179_Chocolate-Chip-Cookies_wlyrzm.jpg" alt="Sweets">
       <div class="carousel-caption">
         <h3>Sweets</h3>
         <p>Surprise your relatives!</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img [routerLink]="['/search', 'Furniture']" src="http://res.cloudinary.com/diwv72pih/image/upload/w_930,h_500/v1502078557/Furniture-HD-Wallpapers_sfsuxk.jpg" alt="Furniture">
+      <div class="carousel-caption">
+        <h3>Furniture</h3>
+        <p>Design your life!</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img [routerLink]="['/search', 'Sport']" src="http://res.cloudinary.com/diwv72pih/image/upload/w_930,h_500/v1502081067/dumbbells_fitness_gym_113149_1920x1080_nrfvjy.jpg" alt="Sport">
+      <div class="carousel-caption">
+        <h3>Sports</h3>
+        <p>Be better than yesterday</p>
       </div>
     </div>
   </div>
