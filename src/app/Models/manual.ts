@@ -18,7 +18,7 @@ export class Manual {
     this.name = 'НОВАЯ ИНСТРУКЦИЯ';
     this.introduction = 'ОПИСАНИЕ';
     this.published = false;
-    this.rating = 123;
+    this.rating = 0;
     this.userId = +localStorage.getItem('userId');
     this.image = 'https://cdn2.iconfinder.com/data/icons/facebook-ui-colored/48/JD-03-256.png';
   }

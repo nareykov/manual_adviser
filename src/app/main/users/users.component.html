@@ -6,10 +6,7 @@
     </a>
     <div>
       <a [routerLink]="['/user', user.id]" class="username"><h4>{{user.username}}</h4></a>
-      <div class="rate-wrap">
-        <img src="http://k.foto.radikal.ru/0701/673d2b816949.jpg" style="max-height: 30px">
-      </div>
-      <h5><span class="label label-danger">{{user.manualAmount}} {{ 'Manuals' | translate:lang }}</span> <span class="label label-primary">{{user.commentAmount}}{{ 'Comments' | translate:lang }}</span>
+      <h5><span class="label label-danger">{{user.manualAmount}} {{ 'Manuals' | translate:lang }}</span> <span class="label label-primary">{{user.commentAmount}} {{ 'Comments' | translate:lang }}</span>
       </h5>
     </div>
   </div>

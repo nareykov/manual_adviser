@@ -4,7 +4,7 @@
 
   <div class="lesson-summary" *ngFor="let manual of manuals; let i = index">
     <div>
-      <a [routerLink]="['/editinstruction/', manual.id]" title="{{manual.name}}"
+      <a [routerLink]="['/editinstruction/', userId, manual.id]" title="{{manual.name}}"
          class="lesson-thumbnail login-required" data-sourcea="class:viewLesson" *ngIf="(userId == manual.userId || userRole === 'ROLE_ADMIN')">
         <img class="lesson" src="{{manual.image}}">
       </a>
@@ -13,7 +13,7 @@
         <img class="lesson" src="{{manual.image}}">
       </a>
       <div>
-        <a [routerLink]="['/editinstruction/', manual.id]" class="manualLink" *ngIf="(userId == manual.userId || userRole === 'ROLE_ADMIN')">
+        <a [routerLink]="['/editinstruction/', userId, manual.id]" class="manualLink" *ngIf="(userId == manual.userId || userRole === 'ROLE_ADMIN')">
           <h2  class="overflow_div manualName">{{manual.name}}</h2>
         </a>
         <a [routerLink]="['/manual/', manual.id]" class="manualLink" *ngIf="!(userId == manual.userId || userRole === 'ROLE_ADMIN')">
@@ -22,7 +22,7 @@
         <div class="overflow_div tag_div">
           <span *ngFor="let tag of manual.tags" class="tag label label-danger" [routerLink]="['/search', '@' + tag.name]">{{tag.name}}</span>
         </div>
-        <h5 class="overflow_div username">Post by
+        <h5 class="overflow_div username">{{ 'Post by' | translate:lang }}
           <a [routerLink]="['/user/', manual.userId]" class="manualLink"><strong>{{manual.username}}</strong></a>
         </h5>
         <h5 class="overflow_div date"><span class="glyphicon glyphicon-time"></span>  {{manual.date}}</h5>

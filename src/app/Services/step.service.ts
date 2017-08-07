@@ -41,7 +41,7 @@ export class StepService {
   postUnit(unit: Unit) {
     return this.authHttp.post('http://localhost:8080/addUnit', unit);
   }
-  getUserIdByStepId(stepId: number): Observable<number> {
+  getUserIdByStepId(stepId: string): Observable<number> {
     return this.authHttp.get('http://localhost:8080/userIdByStepId/' + stepId)
       .map((resp: Response) => {
         return resp.json();

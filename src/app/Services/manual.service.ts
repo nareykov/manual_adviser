@@ -51,10 +51,10 @@ export class ManualService {
       });
   }
 
-  newInstruction() {
+  newInstruction(userId: number) {
     return this.authHttp.post('http://localhost:8080/newinstruction/', new Manual())
       .map((response: Response) => {
-        this.router.navigateByUrl('/editinstruction/' + response.text());
+        this.router.navigateByUrl('/editinstruction/' + userId + '/' + response.text());
       });
   }
 
@@ -71,7 +71,9 @@ export class ManualService {
   }
 
   postTag(tag: Tag) {
-    return this.authHttp.post('http://localhost:8080/addtag', tag);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
+    return this.authHttp.post('http://localhost:8080/addtag', tag, options);
   }
 
   delete(manualId: number) {

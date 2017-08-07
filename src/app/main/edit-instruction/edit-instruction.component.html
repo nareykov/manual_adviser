@@ -25,7 +25,7 @@
     <div class="col-sm-12 ">
       <div class="panel panel-success">
         <div class="panel-heading header">
-          Stepname
+          {{ 'Stepname' | translate:lang }}
         </div>
         <div class="panel-body">
           <ul class="list-group" dnd-sortable-container [sortableData]="manual.steps">
@@ -53,9 +53,9 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modal Header</h4>
+                  <h4 class="modal-title">{{ 'Stepname' | translate:lang }}</h4>
                 </div>
-                <input [(ngModel)]="stepName" class="input_step" placeholder="Step name">
+                <input [(ngModel)]="stepName" class="input_step" placeholder="{{ 'Stepname' | translate:lang }}">
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addStep()">
                     {{ 'Send' | translate:lang }}

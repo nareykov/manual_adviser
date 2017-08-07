@@ -30,6 +30,8 @@ import {AuthConfig, AuthHttp} from 'angular2-jwt';
 import { NewComponent } from './main/new/new.component';
 import {EditInstructionGuard} from './guards/edit-instruction.guard';
 import {ManualService} from './Services/manual.service';
+import {EditStepGuard} from "./guards/edit-step.guard";
+import {StepService} from "./Services/step.service";
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -79,7 +81,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       deps: [Http, RequestOptions]
     },
     EditInstructionGuard,
-    ManualService
+    EditStepGuard,
+    ManualService,
+    StepService
   ],
   bootstrap: [AppComponent]
 })

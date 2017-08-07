@@ -6,6 +6,7 @@ import 'rxjs/add/operator/filter';
 import * as auth0 from 'auth0-js';
 import {User} from '../Models/user';
 import {Observable} from 'rxjs/Observable';
+import { Location } from '@angular/common';
 
 @Injectable()
 export class Auth0Service {
@@ -21,7 +22,7 @@ export class Auth0Service {
     scope: 'openid profile'
   });
   userProfile: any;
-  constructor(public router: Router, private authHttp: AuthHttp, public http: Http) {}
+  constructor(public router: Router, private authHttp: AuthHttp, public http: Http, private location: Location) {}
 
   public login() {
     this.auth0.authorize();
@@ -39,7 +40,7 @@ export class Auth0Service {
       localStorage.setItem('userImage', user.image);
       localStorage.setItem('userName', user.username);
     });
-    console.log(localStorage.getItem('userId'));
+    this.location.go('/');
   }
 
   public handleAuthentication(): void {
@@ -73,7 +74,6 @@ export class Auth0Service {
     localStorage.removeItem('userName');
     localStorage.removeItem('userRole');
     localStorage.removeItem(AuthConfigConsts.DEFAULT_TOKEN_NAME);
-    this.router.navigate(['/home']);
   }
 
   public isAuthenticated(): boolean {

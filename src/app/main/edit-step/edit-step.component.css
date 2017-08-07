@@ -76,3 +76,7 @@
 .sun :hover{
   color: chocolate;
 }
+
+.word_wrap {
+  word-wrap: break-word;
+}

@@ -24,7 +24,7 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
   nameTag: any;
   @ViewChild('introductionTag')
   introductionTag: any;
-  stepName = 'stepname';
+  stepName = '';
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'diwv72pih', uploadPreset: 'gx1d3d3k' })
   );
@@ -65,7 +65,7 @@ export class EditInstructionComponent implements OnInit, OnDestroy {
   addTag(tag) {
     tag.id = 0;
     this.manualService.postTag(tag).subscribe(data => tag.id = Number(data.text()));
-    //this.infoChanged();
+    // this.infoChanged();
   }
 
   addStep() {

@@ -9,6 +9,7 @@ import {EditInstructionComponent} from './main/edit-instruction/edit-instruction
 import {HomeComponent} from './main/home/home.component';
 import {NewComponent} from './main/new/new.component';
 import {EditInstructionGuard} from './guards/edit-instruction.guard';
+import {EditStepGuard} from './guards/edit-step.guard';
 
 
 export const appRoutes: Routes = [
@@ -16,10 +17,10 @@ export const appRoutes: Routes = [
   {path: 'manual/:manualId', component: ManualComponent},
   {path: 'popular', component: PopularComponent},
   {path: 'users', component: UsersComponent},
-  {path: 'editstep/:stepId', component: EditStepComponent},
+  {path: 'editstep/:stepId', component: EditStepComponent, canActivate: [EditStepGuard]},
   {path: 'home', component: HomeComponent},
   {path: 'new', component: NewComponent},
   {path: 'user/:id', component: UserComponent},
-  {path: 'editinstruction/:manualId', component: EditInstructionComponent, canActivate: [EditInstructionGuard]},
+  {path: 'editinstruction/:userId/:manualId', component: EditInstructionComponent, canActivate: [EditInstructionGuard]},
   {path: '**', redirectTo: '/home'}
 ];

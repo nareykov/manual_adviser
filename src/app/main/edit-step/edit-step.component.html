@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-12 ">
     <div class="panel panel-success">
-      <div class="panel-heading header">
+      <div class="panel-heading header word_wrap">
         {{step.name}}
       </div>
       <div class="panel-body">
@@ -14,7 +14,7 @@
                       height="315" allowfullscreen></iframe>
             </div>
             <div *ngIf="unit.type=='text'" class=" " >
-              <div  [froalaView]="unit.content"></div>
+              <div  [froalaView]="unit.content" class="word_wrap"></div>
             </div>
             <div *ngIf="unit.type=='image'" style="text-align: center">
               <div  class="div_image">
