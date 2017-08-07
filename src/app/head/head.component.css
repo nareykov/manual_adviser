@@ -1,89 +1,110 @@
-.navigationBar{
-  height:50px;
+.navigationBar {
+  height: 50px;
   margin-bottom: 0px;
 }
 
-.menu{
+.menu {
   display: inline-block;
   width: 420px;
 }
 
-.navbarBrand{
+.navbarBrand {
   font-size: x-large;
   color: #FFFFFF !important;
 }
 
-#myNavbar{
+#myNavbar {
   background-color: #000;
 
 }
 
-@media (min-width: 992px){
-  #myNavbar{height: 50px !important;}
+@media (min-width: 992px) {
+  #myNavbar {
+    height: 50px !important;
+  }
 }
 
-.login{
+.login {
   color: #9d9d9d;
   vertical-align: super;
   margin-right: 50%;
   padding-top: 8px;
   font-size: 14px;
 }
-.login:hover{
+
+.login:hover {
   color: #FFFFFF;
-  text-decoration:none;
+  text-decoration: none;
 }
 
-
-.input_design{
-  width:90% !important;
+.input_design {
+  width: 90% !important;
 }
 
-.confButton{
+.confButton {
   padding-top: 5px;
   color: #9d9d9d;
 }
 
-.dropdown{
+.dropdown {
   display: block;
   position: relative;
 }
-.dropdown-menu{
+
+.dropdown-menu {
   position: absolute;
 }
 
-.confButton:hover{
+.confButton:hover {
   color: #FFFFFF;
-  text-decoration:none;
+  text-decoration: none;
 }
 
-.dropdownContext1{
+.dropdownContext1 {
 
 }
 
-.dropdownContext2{
+.dropdownContext2 {
   margin-left: 12px;
   margin-top: 5px;
 }
 
-.toggle{
+.toggle {
   margin-left: 20px !important;
 }
-.rightnavbar{
+
+.rightnavbar {
   margin-top: 8px;
 }
 
-.userImage{
-  width:30px;
-  height:30px;
-  border-radius:100%;
+.userImage {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
 }
 
-.userImageButton{
+.userImageButton {
   padding-top: 3px;
 }
 
 .inline_head {
   display: inline-block;
   height: 29px;
+}
+
+@media screen and (min-width: 1257px) {
+  .rightnavbar {
+    margin-left: 680px;
+  }
+
+  .listButtonsL10N {
+    left: 526px;
+    top: 39px;
+  }
+}
+
+@media (max-width: 500px) {
+  .buttonsL10N {
+    margin-left: 0px;
+  }
 }

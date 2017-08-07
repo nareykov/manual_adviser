@@ -39,22 +39,23 @@
       <div *ngIf="(auth0Service.isAuthenticated())" class=" inline_head">
         <a class="login navbar-brand" (click)="auth0Service.logout()">{{ 'Logout' | translate:lang }}</a>
       </div>
-        <a class="fa fa-2x fa-cog confButton dropdown-toggle" data-toggle="dropdown"></a>
-        <span class="caret" style=" visibility: hidden;"></span>
-        <ul role="menu" class="dropdown-menu">
-          <li>
-            <div style="text-align: center">
-              <button (click)="selectLanguage('ru');" style="padding: 0px"><img src="https://vignette4.wikia.nocookie.net/battlefield/images/d/d4/Flag_of_Russia.png/revision/latest?cb=20111126150020&path-prefix=ru"
-                           height="25" width="55"></button>
-              <button (click)="selectLanguage('en');" style="padding: 0px"><img src="http://2.bp.blogspot.com/-btFhid7OXAk/VY4nA-XOiHI/AAAAAAAAAho/MWHp8L5Xiqs/s1600/640px-Flag_of_the_United_States.svg.png"
-                                                height="25" width="55"></button>
-              </div>
-          </li>
-          <li>
-            <div></div>
-          </li>
-        </ul>
+      <a class="fa fa-2x fa-cog confButton dropdown-toggle" data-toggle="dropdown"></a>
+      <span class="caret" style=" visibility: hidden;"></span>
+      <ul role="menu" class="dropdown-menu listButtonsL10N">
+        <li class="">
+          <div style="text-align: center" class="buttonsL10N">
+            <button (click)="selectLanguage('ru');" style="padding: 0px"><img src="https://vignette4.wikia.nocookie.net/battlefield/images/d/d4/Flag_of_Russia.png/revision/latest?cb=20111126150020&path-prefix=ru"
+                                                                              height="25" width="55"></button>
+            <button (click)="selectLanguage('en');" style="padding: 0px"><img   src="http://2.bp.blogspot.com/-btFhid7OXAk/VY4nA-XOiHI/AAAAAAAAAho/MWHp8L5Xiqs/s1600/640px-Flag_of_the_United_States.svg.png"
+                                                                              height="25" width="55"></button>
+          </div>
+        </li>
+        <li>
+          <div></div>
+        </li>
+      </ul>
     </div>
+
 
     <!--</form>-->
 
@@ -62,4 +63,6 @@
     <!--</div>-->
   </div>
 </div>
+
+
 
